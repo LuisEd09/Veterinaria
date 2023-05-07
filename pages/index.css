@@ -1,0 +1,102 @@
+
+.container {
+    width: 60vh;
+    height: 94vh;
+    background-color: #EEEEEE;
+    margin: 3vh;
+    border-radius: 10px;
+    position: absolute;
+    text-align: center;
+    border: 0px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+
+    border-style: solid;
+  border-color: rgb(212, 202, 202);
+  }
+.imagen{
+  position: absolute;
+  left: 65vh;
+  height: 40vh;
+  text-align: center;
+}
+.gato{
+
+  height: 80vh;
+
+}
+.desc{
+  font-weight: 40;
+  margin: 0%; 
+  position: relative;
+  text-align: left;  
+  color: gray;
+  left: 40px;
+}
+.log{
+  border-radius: 15px;
+  margin-bottom: 10px;
+  width: 30vh;
+  height: 35px;
+  position: relative;
+  text-align: left;
+  color: gray;
+  padding-left: 10px;
+}
+.form-group{
+width: 40vh;
+position: relative;
+top: 120px;
+left: 10vh;
+}
+  button[type="submit"] {
+    background-color: #79A3FF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0066FF;
+  }
+
+  .rell{
+    position: relative;
+    margin-bottom: 0px;
+    left: -80px;
+    -webkit-transform: scale(1.5); /* Para Safari y Chrome */
+  transform: scale(1.5);
+  margin-right: 10px;
+  }
+  .noti{
+    color: gray;
+    
+  }
+  .admin{
+    color: gray;
+    position: relative;
+    left: 15px;
+    margin-top: 0px;
+    top: -20px;
+  }
+  .info{
+    width: 90vh;
+    left: 30vh;
+    position: relative;
+    top: 10px;
+  }
+  .detall{
+    color: gray;
+  }
+  .enlac{
+    color: black;
+  }
+  .divadmin{
+    width: 140px;
+    left: 80px;
+    position: relative;
+  }
