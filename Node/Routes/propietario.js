@@ -3,11 +3,21 @@ const propietario = express.Router();
 const db = require('../config/database');
 const jwt =require('jsonwebtoken')
 
-//Registro (en construccion)
-propietario.post("/register", (req, res, next) =>{
-    const {} = req.body;
-    let query = "";
-    query += VALUES
+//Registro
+propietario.post("/register", async(req, res, next) =>{
+    const {Nombre, Direccion, Telefono, Correo, Contraseña} = req.body;
+    if(Nombre && Direccion && Telefono && Correo && Contraseña){
+    let query = "INSERT INTO propietario (Nombre, Direccion, Telefono, Correo, Contraseña)";
+    query += `VALUES ('${Nombre}', '${Direccion}', ${Telefono}, '${Correo}', '${Contraseña}')`
+    const rows = await db.query(query);
+
+    if (rows.affectedRows == 1){
+        return res.status(201).json({code: 201, message:"Usuario Registrado exitosamente"});
+        }
+    
+        return res.status(500).json({code:500, message:"Ocurrio un error"});
+        }
+        return res.status(500).json({code:500, message:"Campos Incompletos"});
 });
 
 //Inicio de sesion

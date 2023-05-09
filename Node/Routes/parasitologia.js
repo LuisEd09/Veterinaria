@@ -36,7 +36,7 @@ parasitologia.post("/", async(req, res, next) =>{
 
     if (Caso && Fecha && Especie && Raza && Sexo && Mvz && Hora && Nombre && Edad && Castrado && Expediente && AnaYEx && TratPrev && TipoMuestra && Tecnica && Resultado && Observaciones && idPropietario){
     let query = "INSERT INTO parasitologia (Caso, Fecha, Especie, Raza, Sexo, Mvz, Hora, Nombre, Edad, Castrado, Expediente, AnaYEx, TratPrev, TipoMuestra, Tecnica, Resultado, Observaciones, idPropietario)";
-    query += ` VALUES('${Caso}', ${Fecha}', ${Especie}', ${Raza}', ${Sexo}', ${Mvz}', ${Hora}', ${Nombre}', ${Edad}', ${Castrado}', ${Expediente}', ${AnaYEx}', ${TratPrev}', ${TipoMuestra}', ${Tecnica}', ${Resultado}', ${Observaciones}', ${idPropietario})`;
+    query += ` VALUES('${Caso}', ${Fecha}, '${Especie}', '${Raza}', '${Sexo}', '${Mvz}', '${Hora}', '${Nombre}', ${Edad}, '${Castrado}', ${Expediente}, '${AnaYEx}', '${TratPrev}', '${TipoMuestra}', '${Tecnica}', '${Resultado}', '${Observaciones}', ${idPropietario})`;
     const rows = await db.query(query);
     
     if (rows.affectedRows == 1){
