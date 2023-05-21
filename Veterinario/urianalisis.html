@@ -33,7 +33,8 @@
 						<p>Caso</p>
 					</div>
 					<div class="col2">
-						<p>23-UA-</p>
+						<!-- <p>23-UA-</p> -->
+						<input type="text" id="caso" value="23-UA-">
 					</div>
 				</div>
 				<div class="linea">
@@ -41,7 +42,8 @@
 						<p>Propietario</p>
 					</div>
 					<div class="col2">
-						<p>Nombre Nombre Apellido Apellido</p>
+						<!-- <p>Nombre Nombre Apellido Apellido</p> -->
+						<input type="text" id="nombre" value="Nombre Nombre Apellido Apellido">
 					</div>
 				</div>
 				<div class="linea">
@@ -49,7 +51,8 @@
 						<p>Dirección</p>
 					</div>
 					<div class="col2">
-						<p>Calle ##, Colonia Ciudad</p>
+						<!-- <p>Calle ##, Colonia Ciudad</p> -->
+						<input type="text" id="direccion" value="Calle ##, Colonia Ciudad">
 					</div>
 				</div>
 				<div class="linea">
@@ -57,7 +60,8 @@
 						<p>Teléfono</p>
 					</div>
 					<div class="col2">
-						<p>4424424424</p>
+						<!-- <p>4424424424</p> -->
+						<input type="text" id="telefono" value="4424424424">
 					</div>
 				</div>
 			</div>
@@ -67,13 +71,15 @@
 						<p>Fecha</p>
 					</div>
 					<div class="col4">
-						<p>02/07/2023</p>
+						<!-- <p>02/07/2023</p> -->
+						<input type="date" id="fecha" value="2023-07-02">
 					</div>
 					<div class="col5">
 						<p>Hora</p>
 					</div>
 					<div class="col6">
-						<p>11:11</p>
+						<!-- <p>11:11</p> -->
+						<input type="time" id="hora" value="11:11">
 					</div>
 				</div>
 				<div class="linea">
@@ -81,13 +87,19 @@
 						<p>Especie</p>
 					</div>
 					<div class="col4">
-						<p>Canino</p>
+						<select name="especie" id="especie">
+							<option>Seleccione</option>
+							<option value="canino">Canino</option>
+							<option value="felino">Felino</option>
+							<option value="equino">Equino</option>
+							<option value="bovino">Bovino</option>
+						</select>
 					</div>
 					<div class="col5">
 						<p>Nombre</p>
 					</div>
 					<div class="col6">
-						<p>Lucky</p>
+						<input type="text" id="nombre" value="Lucky">
 					</div>
 				</div>
 				<div class="linea">
@@ -95,13 +107,13 @@
 						<p>Raza</p>
 					</div>
 					<div class="col4">
-						<p>Golden Retreiver</p>
+						<input type="text" id="raza" value="Golden retreiver">
 					</div>
 					<div class="col5">
 						<p>Edad</p>
 					</div>
 					<div class="col6">
-						<p>15</p>
+						<input type="number" id="edad" value="0">
 					</div>
 				</div>
 				<div class="linea">
@@ -109,46 +121,55 @@
 						<p>Sexo</p>
 					</div>
 					<div class="col4">
-						<p>Macho</p>
+						<select name="sexo" id="sexo">
+							<option>Seleccione</option>
+							<option value="macho">Macho</option>
+							<option value="hembra">Hembra</option>
+						</select>
 					</div>
 					<div class="col5">
 						<p>Castrado</p>
 					</div>
 					<div class="col6">
-						<p>No</p>
+						<select name="castrado" id="castrado">
+							<option>Seleccione</option>
+							<option value="si">Si</option>
+							<option value="no">No</option>
+						</select>
 					</div>
 				</div>
 				<div class="linea">
-					<div class="col3">
+					<div class="col3" id="col3">
 						<p>Mvz</p>
 					</div>
-					<div class="col4">
-						<p>Nombre Apellido Apellido</p>
+					<div class="col4" id="col4">
+						<textarea type="text" id="mvz" placeholder="Nombre Apellido">Nombre Apellido</textarea>
 					</div>
-					<div class="col5">
+					<div class="col5" id="col5">
 						<p>Expediente</p>
 					</div>
-					<div class="col6">
-						<p>123456456</p>
+					<div class="col6" id="col6">
+						<input type="text" id="expediente" value="123456456">
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="anam">
 			<div class="linea">
-				<div class="col7">
+				<div class="col7" id="col7">
 					<p>Anamnesis / Examen físico</p>
 				</div>
-				<div class="col8">
-					<p>Ingrese</p>
+				<div class="col8" id="col8">
+					<textarea id="anamnesis" placeholder="Ingrese"></textarea>
 				</div>
 			</div>
 			<div class="linea">
-				<div class="col9">
+				<div class="col9" id="col9">
 					<p>Tratamiento previo</p>
 				</div>
-				<div class="col10">
-					<p>Ingrese tratamiento previo hasta de 3 días previos a la muestra</p>
+				<div class="col10" id="col10">
+					<!-- <p>Ingrese tratamiento previo hasta de 3 días previos a la muestra</p> -->
+					<textarea id="previo" placeholder="Ingrese tratamiento previo hasta de 3 días previos a la muestra"></textarea>
 				</div>
 			</div>
 		</div>
@@ -157,7 +178,12 @@
 				<p>Método de obtención</p>
 			</div>
 			<div class="obtTxt">
-				<p>No referido</p>
+				<select name="obtencion" id="obtencion">
+					<option value="no">No referido</option>
+					<option value="miccion">Micción</option>
+					<option value="cateterismo">Cateterismo</option>
+					<option value="cistocentesis">Cistocentesis</option>
+				</select>
 			</div>
 		</div>
 		<div class="examenes">
@@ -174,13 +200,21 @@
 					<p>Color</p>
 				</div>
 				<div class="exC2">
-					<p>Ingrese color</p>
+					<input type="text" id="color" placeholder="Ingrese">
 				</div>
 				<div class="exC3">
 					<p>Proteínas</p>
 				</div>
 				<div class="exC4">
-					<p>Trazas</p>
+					<select name="apariencia" id="apariencia">
+						<option value="0">0</option>
+						<option value="trazas">Trazas</option>
+						<option value="0.15">0.15</option>
+						<option value="0.3">0.3</option>
+						<option value="1">1</option>
+						<option value="3">3</option>
+						<option value="20">20</option>
+					</select>
 				</div>
 				<div class="exC4">
 					<p>g/L</p>
@@ -189,7 +223,7 @@
 					<p>pH</p>
 				</div>
 				<div class="exC6">
-					<p>Ingrese pH</p>
+					<input type="text" id="pH" placeholder="Ingrese">
 				</div>
 			</div>
 			<div class="linea">
@@ -197,13 +231,26 @@
 					<p>Apariencia</p>
 				</div>
 				<div class="exC2">
-					<p>Turbio 3+</p>
+					<select name="apariencia" id="apariencia">
+						<option>Elija una opción</option>
+						<option value="transparente">Transparente</option>
+						<option value="uno">Turbio 1+</option>
+						<option value="dos">Tubrio 2+</option>
+						<option value="tres">Turbio 3+</option>
+					</select>
 				</div>
 				<div class="exC3">
 					<p>Glucosa</p>
 				</div>
 				<div class="exC4">
-					<p>110</p>
+					<select name="apariencia" id="apariencia">
+						<option value="0">0</option>
+						<option value="5">5</option>
+						<option value="15">15</option>
+						<option value="30">30</option>
+						<option value="60">60</option>
+						<option value="110">110</option>
+					</select>
 				</div>
 				<div class="exC4">
 					<p>mmol/L</p>
@@ -212,7 +259,12 @@
 					<p>Cetonas</p>
 				</div>
 				<div class="exC6">
-					<p>Negativo</p>
+					<select name="apariencia" id="apariencia">
+						<option value="negativo">Negativo</option>
+						<option value="uno">1+</option>
+						<option value="dos">2+</option>
+						<option value="tres">3+</option>
+					</select>
 				</div>
 			</div>
 			<div class="linea">
@@ -220,13 +272,18 @@
 					<p>Densidad</p>
 				</div>
 				<div class="exC2">
-					<p>Ingrese DU</p>
+					<input type="text" id="densidad" placeholder="Ingrese">
 				</div>
 				<div class="exC3">
 					<p>Sangre/Hg</p>
 				</div>
 				<div class="exC4">
-					<p>5 - 10</p>
+					<select name="apariencia" id="apariencia">
+						<option value="0">0</option>
+						<option value="5">5 - 10</option>
+						<option value="50">50</option>
+						<option value=">50">>50</option>
+					</select>
 				</div>
 				<div class="exC4">
 					<p>Eri/µL</p>
@@ -235,18 +292,192 @@
 					<p>Bilirrubina</p>
 				</div>
 				<div class="exC6">
-					<p>Negativo</p>
+					<select name="apariencia" id="apariencia">
+						<option value="negativo">Negativo</option>
+						<option value="uno">1+</option>
+						<option value="dos">2+</option>
+						<option value="tres">3+</option>
+					</select>
 				</div>
 			</div>
 		</div>
 		<div class="micro">
 			<div class="linea">
 				<div class="linT">
-					
+					<p>Examen microscópico</p>
 				</div>
+			</div>
+			<div class="linea">
+				<div class="miC1">
+					<p>Eritrocitos</p>
+				</div>
+				<div class="miC2">
+					<input type="text" id="eritrocitos">
+				</div>
+				<div class="miC3">
+					<p>Campo 400x</p>
+				</div>
+				<div class="miC4">
+					<p>Renales</p>
+				</div>
+				<div class="miC5">
+					<input type="text" id="renales">
+				</div>
+				<div class="miC6">
+					<p>Campo 400x</p>
+				</div>
+			</div>
+			<div class="linea">
+				<div class="miC1">
+					<p>Leucocitos</p>
+				</div>
+				<div class="miC2">
+					<input type="text" id="leucocitos">
+				</div>
+				<div class="miC3">
+					<p>Campo 400x</p>
+				</div>
+				<div class="miC4">
+					<p>Cristales</p>
+				</div>
+				<div class="miC5">
+					<input type="text" id="cristales">
+				</div>
+				<div class="miC6">
+					<p>Campo 400x</p>
+				</div>
+			</div>
+			<div class="linea">
+				<div class="miC1">
+					<p>Escamosas</p>
+				</div>
+				<div class="miC2">
+					<input type="text" id="escamosas">
+				</div>
+				<div class="miC3">
+					<p>Campo 400x</p>
+				</div>
+				<div class="miC4">
+					<p>Lípidos</p>
+				</div>
+				<div class="miC5">
+					<input type="text" id="lipidos">
+				</div>
+				<div class="miC6">
+					<p>Campo 400x</p>
+				</div>
+			</div>
+			<div class="linea">
+				<div class="miC1">
+					<p>Transitorias</p>
+				</div>
+				<div class="miC2">
+					<input type="text" id="transitorias">
+				</div>
+				<div class="miC3">
+					<p>Campo 400x</p>
+				</div>
+				<div class="miC4">
+					<p>Bacterias</p>
+				</div>
+				<div class="miC5">
+					<input type="text" id="bacterias">
+				</div>
+				<div class="miC6">
+					<p>Campo 400x</p>
+				</div>
+			</div>
+			<div class="linea">
+				<div class="miC1">
+					<p>Cilindros</p>
+				</div>
+				<div class="miC2">
+					<input type="text" id="cilindros">
+				</div>
+				<div class="miC3">
+					<p>Campo 400x</p>
+				</div>
+				<div class="miC4">
+					<p>Otros</p>
+				</div>
+				<div class="miC5">
+					<input type="text" id="otros">
+				</div>
+				<div class="miC6">
+					<p>Campo 400x</p>
+				</div>
+			</div>
+			<div class="linea">
+			</div>
+		</div>
+		<div class="inter">
+			<div class="interT" id="interT">
+				<p>Interpretación</p>
+			</div>
+			<div class="interTxt" id="interTxt">
+				<textarea id="interpretacion"></textarea>
+			</div>
+		</div>
+		<div class="boton">
+			<div class="registrar">
+				<p>Registrar</p>
 			</div>
 		</div>
 	</div>
+	<script>
+		const textarea1 = document.getElementById("mvz");
+		const col3 = document.getElementById("col3");
+		const col4 = document.getElementById("col4");
+		const col5 = document.getElementById("col5");
+		const col6 = document.getElementById("col6");
+
+		textarea1.addEventListener("input", function() {
+			this.style.height = "4.5vh";
+			this.style.height = (this.scrollHeight > this.offsetHeight ? this.scrollHeight : this.offsetHeight) + "px";
+			
+			col3.style.height = this.style.height;
+			col4.style.height = this.style.height;
+			col5.style.height = this.style.height;
+			col6.style.height = this.style.height;
+		});
+
+		const textarea = document.getElementById("previo");
+		const col9 = document.getElementById("col9");
+		const col10 = document.getElementById("col10");
+
+		textarea.addEventListener("input", function() {
+			this.style.height = "4.5vh";
+			this.style.height = (this.scrollHeight > this.offsetHeight ? this.scrollHeight : this.offsetHeight) + "px";
+			
+			col9.style.height = this.style.height;
+			col10.style.height = this.style.height;
+		});
+
+		const textarea2 = document.getElementById("anamnesis");
+		const col7 = document.getElementById("col7");
+		const col8 = document.getElementById("col8");
+
+		textarea2.addEventListener("input", function() {
+			this.style.height = "auto";
+			this.style.height = this.scrollHeight + "px";
+			col7.style.height = this.style.height;
+			col8.style.height = this.style.height;
+		});
+
+		const textarea3 = document.getElementById("interpretacion");
+		const interTxt = document.getElementById("interTxt");
+		const interT = document.getElementById("interT");
+
+		textarea3.addEventListener("input", function() {
+			this.style.height = "4.5vh";
+			this.style.height = (this.scrollHeight > this.offsetHeight ? this.scrollHeight : this.offsetHeight) + "px";
+			
+			interTxt.style.height = this.style.height;
+			interT.style.height = this.style.height;
+		});
+
+
+	</script>
 </body>
 
 </html>
