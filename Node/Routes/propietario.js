@@ -1,7 +1,7 @@
 const express = require('express');
 const propietario = express.Router();
 const db = require('../config/database');
-const jwt =require('jsonwebtoken')
+const jwt =require('jsonwebtoken');
 
 //Registro
 propietario.post("/register", async(req, res, next) =>{

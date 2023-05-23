@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
     <link rel="stylesheet" type="text/css" href="index.css">
+    
 
 </head>
 <body>
@@ -14,17 +17,17 @@
           <h1>Bienvenido</h1>
           
             <p class="desc">Usuario</p>
-            <input type="text"  class="log">
+            <input type="text"  class="log" id="user">
             <p class="desc">Contraseña</p>
-            <input type="password"  class="log">
+            <input type="password"  class="log" id="pass">
           
           <br><br>
-          <div><input type="checkbox" class="rell"> </input></div>
+          <div><input type="checkbox" class="rell" id="perfil"> </input></div>
           <div class="divadmin">
           <p class="admin">¿Eres administrador?</p>
 </div>
           
-          <button type="submit">Iniciar sesión</button>
+          <button type="button" class="btn btn-primary">Iniciar sesión</button>
           <br><br><br><br>
           <br>
           <br>
@@ -41,4 +44,5 @@
       <img src="./img/cat.svg" class="gato">
     </div>
 </body>
+<script src="./index.js"></script>
 </html>

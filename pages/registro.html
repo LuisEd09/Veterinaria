@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" type="text/css" href="registro.css">
 
 </head>
@@ -14,21 +15,21 @@
           <h1>Registro</h1>
           
             <p class="desc">Nombre</p>
-            <input type="text"  class="log">
+            <input type="text"  class="log" id="nombre">
             <p class="desc">Dirección</p>
-            <input type="text"  class="log">
+            <input type="text"  class="log" id="direccion">
             <p class="desc">Telefono</p>
-            <input type="number"  class="log">
+            <input type="number"  class="log" id="telefono">
             <p class="desc">Correo</p>
-            <input type="text"  class="log">
+            <input type="text"  class="log" id="correo">
             <p class="desc">Contraseña</p>
-            <input type="password"  class="log">
+            <input type="password"  class="log" id="Contraseña">
           
           <br><br>
           
 
           
-          <button type="submit">Registrar</button>
+          <button type="button" class="btn btn-primary">Registrar</button>
           <br><br><br>
           
           
@@ -44,4 +45,5 @@
       <img src="./img/animales.svg" class="gato">
     </div>
 </body>
+<script src="./registro.js"></script>
 </html>
