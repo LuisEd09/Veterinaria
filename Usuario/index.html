@@ -12,9 +12,10 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet" />
+	<script src="index.js"></script>
 </head>
 
-<body>
+<body onload="loadExamenes()">
 	<div class="header">
 		<a href="index.html" class="header-img">
 			<img src="../Imagenes/LogoUAQ.png" />
@@ -30,16 +31,30 @@
 			<p id="morado">Bienvenido</p>
 			<p id="negro">Nombre Nombre</p>
 		</div>
-		<div class="cuerpo">
-			<img src="../Imagenes/IMG_3.png" id="imagen"/>
-			<div class="lado">
-				<p id="leyenda">Aún no tienes exámenes por revisar, puedes agendar una cita aquí</p>
-				<div class="boton">
-					<p id="btnTxt">Generar cita +</p>
-				</div>
-			</div>
-			</div>
-	</div>
-</body>
 
+		<div id="contenido"></div>
+	</div>
+	<script>
+		function openModal(test) {
+			document.getElementById('myModal').style.display = 'block';
+			var nuevaCita = document.getElementById('nuevaCita');
+			nuevaCita.textContent = 'Nueva cita ' + test;
+			var selectOptions = document.getElementById('selectOptions');
+			selectOptions.style.display = 'none';
+		}
+
+		function closeModal() {
+			document.getElementById('myModal').style.display = 'none';
+		}
+
+		function toggleOptions() {
+			var selectOptions = document.getElementById('selectOptions');
+			if (selectOptions.style.display === 'none') {
+				selectOptions.style.display = 'block';
+			} else {
+				selectOptions.style.display = 'none';
+			}
+		}
+	</script>
+</body>
 </html>

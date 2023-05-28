@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Sistema Veterinario</title>
+	<link rel="stylesheet" href="index.css" />
+
+	<!-- FONTS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+	<div class="header">
+		<a href="index.html" class="header-img">
+			<img src="../Imagenes/LogoUAQ.png" />
+			<p>Sistema Veterinario</p>
+		</a>
+		<div class="header-hrefs">
+			<a href="f"> PERFIL </a>
+			<a href="g"> CERRAR SESIÓN </a>
+		</div>
+	</div>
+	<div class="cobertor">
+		<div class="title">
+			<p id="morado">Bienvenido</p>
+			<p id="negro">Nombre Nombre</p>
+		</div>
+		<div class="cuerpo2">
+			<div class="lado2">
+				<div class="linea">
+					<div class="tipo">
+						<p>Tipo</p>
+					</div>
+					<div class="fecha">
+						<p>Fecha</p>
+					</div>
+				</div>
+				<div class="examenes">
+					<div class="linea2">
+						<div class="tipo">
+							<p>Hematología</p>
+						</div>
+						<div class="fecha">
+							<p>29/05/23</p>
+						</div>
+						<div class="lBtn">
+							<p>Ver examen</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="cubreImagen">
+				<div class="imagenD">
+					<img src="../Imagenes/IMG_4.png" id="imagen2" />
+					<div class="select">
+						<div class="cita" onclick="toggleOptions()">
+							<p>Nueva cita +</p>
+						</div>
+						<div class="select-options" id="selectOptions">
+							<div class="option" onclick="openModal('urianalisis')">Urianalisis</div>
+							<div class="option" onclick="openModal('hematologia')">Hematologia</div>
+							<div class="option" onclick="openModal('parasitologia')">Parasitologia</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="myModal" class="modal">
+			<div class="modal-content">
+				<h2 id="nuevaCita">Nueva cita</h2>
+				<p>Por favor, conteste con los datos de la mascota</p>
+				<div class="fomrulario">
+					<input type="text" placeholder="Nombre" id="nombre" class="nombre">
+					<select name="especie" id="especie" class="especie">
+						<option value="">Especie</option>
+						<option value="canino">Canino</option>
+						<option value="felino">Felino</option>
+						<option value="equino">Equino</option>
+						<option value="bovino">Bovino</option>
+					</select>
+					<input type="text" placeholder="Raza" id="raza" class="raza">
+					<input type="text" placeholder="Edad" id="edad" class="edad">
+					<select name="sexo" id="sexo" class="sexo">
+						<option value="">Sexo</option>
+						<option value="masculino">Masculino</option>
+						<option value="femenino">Femenino</option>
+					</select>
+					<select name="castrado" id="castrado" class="castrado">
+						<option value="">¿Castrado?</option>
+						<option value="si">Si</option>
+						<option value="no">No</option>
+					</select>
+				</div>
+				<div class="botones">
+					<button class="btn2" onclick="">Enviar</button>
+					<button class="btn" onclick="closeModal()">Canelar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		function openModal(test) {
+			document.getElementById('myModal').style.display = 'block';
+			var nuevaCita = document.getElementById('nuevaCita');
+			nuevaCita.textContent = 'Nueva cita ' + test;
+			var selectOptions = document.getElementById('selectOptions');
+			selectOptions.style.display = 'none';
+		}
+
+		function closeModal() {
+			document.getElementById('myModal').style.display = 'none';
+		}
+
+		function toggleOptions() {
+			var selectOptions = document.getElementById('selectOptions');
+			if (selectOptions.style.display === 'none') {
+				selectOptions.style.display = 'block';
+			} else {
+				selectOptions.style.display = 'none';
+			}
+		}
+	</script>
+
+</body>
+
+</html>
