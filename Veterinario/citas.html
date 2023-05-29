@@ -1,12 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    WIP
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema Veterinario</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="citas.js"></script>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <a href="index.html" class="header-img">
+        <img src="../Imagenes/LogoUAQ.png" />
+        <p>Sistema Veterinario</p>
+      </a>
+      <div class="header-hrefs">
+        <a href="citas.html"> SOLICITUDES DE CITA </a>
+        <a href="reportes.html"> REPORTES </a>
+        <a href="f"> PERFIL </a>
+        <a href="g"> CERRAR SESIÓN </a>
+      </div>
+    </div>
+    <div class="citas-container">
+      <img class="citas-imagen" src="../Imagenes/IMG_1.png"/>
+      <div class="citas-container-header">
+        <div class="citas-container-header-columna-1">
+          <p>Fecha Solicitud</p>
+        </div>
+        <div class="citas-container-header-columna-2">
+          <p>Propietario</p>
+        </div>
+        <div class="citas-container-header-columna-3">
+          <p>Animal</p>
+        </div>
+        <div class="citas-container-header-columna-4">
+          <p>Nombre</p>
+        </div>
+        <div class="citas-container-header-columna-5">
+          <p>Exámen</p>
+        </div>
+        <div class="citas-container-header-columna-6">
+          <p>Reporte</p>
+        </div>
+      </div>
+      <div id="citas-container-parent" class="citas-container-parent"></div>
+    </div>
+  </body>
 </html>
