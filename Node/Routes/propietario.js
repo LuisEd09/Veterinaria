@@ -32,9 +32,9 @@ propietario.post("/login", async (req, res, next) =>{
                 idPropietario: rows[0].idPropietario,
                 Correo: rows[0].Correo
             }, "debugkey");
-            return res.status(200).json({code:200 ,  message:token})
+            return res.status(200).json({code:200 ,  message:token, id:rows[0].idPropietario})
         }else{
-            return res.status(200).json({code:200 ,  message:"Correo y/o contraseña incorrectos"})
+            return res.status(200).json({code:401 ,  message:"Correo y/o contraseña incorrectos"})
         }
     }
     return res.status(500).json({code:200 ,  message:"Campos incompletos"})

@@ -1,44 +1,70 @@
-var headers = {"Access-Control-Allow-Origin": null, "Content-Type": "image/jpg"};
-var url = "http://localhost:5000";
+var headers = {};
+var url = "http://localhost:3000";
 
-const examenes =[
-    {
-        tipo: "Hematología",
-        fecha: "29/05/23"
-    },
-    {
-        tipo: "Parasitología",
-        fecha: "13/03/23"
-    },
-    {
-        tipo: "Hematología",
-        fecha: "20/05/23"
-    },
-    {
-        tipo: "Urianálisis",
-        fecha: "10/01/22"
-    }
-]
 
-function loadExamenes(){
-    try{
-        axios.get(url + "/examenes", headers)
-        .then(function(res){
-            displayExamenes(res.data.rows);
-        }).catch(function(err){
-            console.log(err)
-        })
-    }catch(e){
-        if(examenes.length<1){
-            displaySin();
-        }else{
-            displayExamenes(examenes);
+function loadExamenes() {
+    document.getElementById('logout-link').addEventListener('click', function (event) {
+        event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+
+        // Eliminar el valor almacenado en localStorage
+        localStorage.removeItem('token');
+        localStorage.removeItem('id');
+
+        // Redireccionar o realizar cualquier otra acción que desees después de cerrar sesión
+        window.location.href = '../pages/index.html'; // Redireccionar a la página de inicio, por ejemplo
+    });
+
+    if (localStorage.getItem("token")) {
+        headers = {
+            headers: {
+                'Authorization': 'bearer ' + localStorage.getItem("token")
+            }
         }
+    } else {
+        window.location.href = "../pages/index.html"
+    }
 
+    try {
+        axios.get(url + "/todos/examenes", {
+            headers: {
+                'Authorization': 'bearer ' + localStorage.getItem("token")
+            },
+            params: {
+                id: localStorage.getItem("id")
+            }
+        })
+            .then(function (res) {
+                if (res.data.code == 200) {
+                    displayExamenes(res.data.message);
+                } else {
+                    displaySin();
+                }
+            }).catch(function (err) {
+                displaySin();
+                console.log(err)
+            })
+    } catch (e) {
+        displaySin();
+        console.log(e)
     }
 }
 
-function displayExamenes(examenes){
+function formatearFecha(fecha) {
+    // Crea un objeto Date con la cadena de fecha proporcionada
+    const fechaObjeto = new Date(fecha);
+
+    // Obtiene los componentes de la fecha
+    const dia = fechaObjeto.getDate();
+    const mes = fechaObjeto.getMonth() + 1; // Los meses comienzan desde 0, por lo que se suma 1
+    const año = fechaObjeto.getFullYear();
+
+    // Formatea los componentes en una cadena con el formato deseado
+    const fechaFormateada = `${dia < 10 ? '0' + dia : dia}/${mes < 10 ? '0' + mes : mes}/${año}`;
+
+    return fechaFormateada;
+}
+
+function displayExamenes(examenes) {
     var body = document.getElementById("contenido");
     body.innerHTML += ` 
     <div class="cuerpo2">
@@ -56,18 +82,18 @@ function displayExamenes(examenes){
         <div class="cubreImagen" id="cubreImagen"></div>
     </div>
     <div id="myModal" class="modal"></div>
-    ` 
+    `
     var examen = document.getElementById("examenes");
     var cubreImagen = document.getElementById("cubreImagen");
     var myModal = document.getElementById("myModal");
-    for (var i=0; i<examenes.length;i++){
+    for (var i = 0; i < examenes.length; i++) {
         examen.innerHTML += `
 					<div class="linea2">
 						<div class="tipo">
 							<p>${examenes[i].tipo}</p>
 						</div>
 						<div class="fecha">
-							<p>${examenes[i].fecha}</p>
+							<p>${formatearFecha(examenes[i].fecha)}</p>
 						</div>
 						<div class="lBtn">
 							<p>Ver examen</p>
@@ -124,7 +150,7 @@ function displayExamenes(examenes){
     `
 }
 
-function displaySin(){
+function displaySin() {
     var body = document.getElementById("contenido");
     body.innerHTML += ` 
     <div class="cuerpo">

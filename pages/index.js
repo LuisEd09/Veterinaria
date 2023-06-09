@@ -20,9 +20,17 @@ window.onload = init;
                     Contraseña : pass
                 }
             }).then(function(res) {
-                console.log(res);
-                console.log("veterinario");
-                window.location.href = "../Veterinario/index.html";
+                if(res.data.code == 200){
+                    console.log(res);
+                    console.log("veterinario");
+    
+                    localStorage.setItem('token', res.data.message);
+                    localStorage.setItem('id', res.data.id);
+    
+                    window.location.href = "../Veterinario/index.html";
+                }else{
+                    alert("Usuario y/o contraseña incorrectos")
+                }
             }).catch(function(err){
                 console.log(err);
             })
@@ -35,9 +43,16 @@ window.onload = init;
                     Contraseña : pass
                 }
             }).then(function(res) {
-                console.log(res);
-                console.log("propietario");
-                window.location.href = "../Usuario/index.html";
+                if(res.data.code == 200){
+                    console.log(res);
+                    console.log("propietario"); 
+                    localStorage.setItem('token', res.data.message);
+                    localStorage.setItem('id', res.data.id);
+    
+                    window.location.href = "../Usuario/index.html";
+                }else{
+                    alert("Usuario y/o contraseña incorrectos")
+                }
             }).catch(function(err){
                 console.log(err);
             })

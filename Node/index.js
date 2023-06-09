@@ -7,6 +7,7 @@ const parasitologia = require('./Routes/parasitologia');
 const urianalisis = require('./Routes/urianalisis');
 const propietario = require('./Routes/propietario');
 const veterinario = require('./Routes/veterinario');
+const todos = require('./Routes/todos');
 
 const cors = require('./middleware/cors');
 const notFound = require('./middleware/notFound');
@@ -27,6 +28,7 @@ app.use(auth);
 app.use("/hematologia", hematologia);
 app.use("/parasitologia", parasitologia);
 app.use("/urianalisis", urianalisis);
+app.use("/todos", todos);
 app.use(notFound);
 
 app.listen(process.env.PORT || 3000, () => {
