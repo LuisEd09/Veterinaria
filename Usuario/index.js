@@ -1,5 +1,6 @@
 var headers = {};
 var url = "http://localhost:3000";
+var actualTest = '';
 
 
 function loadExamenes() {
@@ -143,7 +144,7 @@ function displayExamenes(examenes) {
 					</select>
 				</div>
 				<div class="botones">
-					<button class="btn2" onclick="">Enviar</button>
+					<button class="btn2" onclick="submit()">Enviar</button>
 					<button class="btn" onclick="closeModal()">Canelar</button>
 				</div>
 			</div>
@@ -195,11 +196,66 @@ function displaySin() {
                     </select>
                 </div>
                 <div class="botones">
-                    <button class="btn2" onclick="">Enviar</button>
+                    <button class="btn2" onclick="submit()">Enviar</button>
                     <button class="btn" onclick="closeModal()">Canelar</button>
                 </div>
             </div>
         </div>
     </div>
     `
+}
+
+function submit() {
+    console.log("submit")
+    const nombre = document.getElementById('nombre').value;
+    const especie = document.getElementById('especie').value;
+    const raza = document.getElementById('raza').value;
+    const edad = document.getElementById('edad').value;
+    const sexo = document.getElementById('sexo').value;
+    const castrado = document.getElementById('castrado').value;
+
+    if(nombre != '' && especie != '' && raza != '' && edad != '' && sexo != '' && castrado != ''){
+        var destino = '';
+        switch(actualTest){
+            case "hematologia":
+                destino = "/hematologia"
+                break;
+            case "parasitologia":
+                destino = "/parasitologia"
+                break;
+            case "urianalisis":
+                destino = "/urianalisis"
+                break;
+        }
+        console.log(url + destino + "/cita")
+        console.log(localStorage.getItem("token"))
+        axios.post(url + destino + "/cita", {
+            idPropietario: localStorage.getItem("id"),
+            fecha:new Date().toISOString().split('T')[0],
+            nombre: nombre,
+            especie:especie,
+            raza: raza,
+            edad: edad,
+            sexo: sexo,
+            castrado: castrado,
+        },{
+            headers: {
+                'Authorization': 'bearer ' + localStorage.getItem("token")
+            },
+        })
+        .then(function (res) {
+            if (res.data.code == 201) {
+                alert("Cita creada correctamente")
+                document.getElementById('myModal').style.display = 'none';
+            } else {
+                alert("Hubo un error")
+                console.log("no fue 201, " + res)
+            }
+        }).catch(function (err) {
+            alert("Hubo un error")
+            console.log(err)
+        })
+    }else{
+        alert("Campos incompletos")
+    }
 }
