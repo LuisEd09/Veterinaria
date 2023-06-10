@@ -54,7 +54,7 @@ urianalisis.post("/cita", async(req,res,next)=>{
 
     if(idPropietario && fecha && nombre && especie && raza && edad && sexo && castrado){
         let query = "INSERT INTO urianalisis (idPropietario, fecha, nombre, especie, raza, edad, sexo, castrado)";
-        query += ` VALUES ('${idPropietario}',${fecha},'${nombre}','${especie}','${raza}','${edad}','${sexo}','${castrado}')`;
+        query += ` VALUES ('${idPropietario}','${fecha}','${nombre}','${especie}','${raza}','${edad}','${sexo}','${castrado}')`;
         console.log("CITA")
         console.log(query)
         const rows = await db.query(query);

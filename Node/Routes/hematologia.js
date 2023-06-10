@@ -53,7 +53,8 @@ hematologia.post("/cita", async(req,res,next)=>{
 
     if(idPropietario && fecha && nombre && especie && raza && edad && sexo && castrado){
         let query = "INSERT INTO hematologia (idPropietario, fecha, nombre, especie, raza, edad, sexo, castrado)";
-        query += ` VALUES ('${idPropietario}',${fecha},'${nombre}','${especie}','${raza}','${edad}','${sexo}','${castrado}')`;
+        query += ` VALUES ('${idPropietario}','${fecha}','${nombre}','${especie}','${raza}','${edad}','${sexo}','${castrado}')`;
+        console.log(query)
         const rows = await db.query(query);
         if(rows.affectedRows == 1){
             return res.status(201).json({code: 201, message:"Datos insertados correctamente"});

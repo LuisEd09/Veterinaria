@@ -54,7 +54,7 @@ parasitologia.post("/cita", async(req,res,next)=>{
 
     if(idPropietario && fecha && nombre && especie && raza && edad && sexo && castrado){
         let query = "INSERT INTO parasitologia (idPropietario, fecha, nombre, especie, raza, edad, sexo, castrado)";
-        query += ` VALUES ('${idPropietario}',${fecha},'${nombre}','${especie}','${raza}','${edad}','${sexo}','${castrado}')`;
+        query += ` VALUES ('${idPropietario}','${fecha}','${nombre}','${especie}','${raza}','${edad}','${sexo}','${castrado}')`;
         const rows = await db.query(query);
         if(rows.affectedRows == 1){
             return res.status(201).json({code: 201, message:"Datos insertados correctamente"});
