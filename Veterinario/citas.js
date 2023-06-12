@@ -2,112 +2,55 @@
 document.addEventListener("DOMContentLoaded", function () {
   /* OBTENER PARENT */
   var parent = document.getElementById("citas-container-parent");
-  /* EJEMPLO DE INFO QUE LLEGA DE LA API */
-  var infoExample = {
-    "info-1": {
-      Caso: "1296508",
-      Fecha: "28/04/2023",
-      Propietario: "Sebastián Acosta Serret",
-      Especie: "Perro",
-      Nombre: "Nombre",
-      Examen: "Urianalisis",
-      Caso: "Urianalisis.Caso",
-    },
-    "info-2": {
-      Caso: "6826012",
-      Fecha: "24/03/2023",
-      Propietario: "Jorge Bernal",
-      Especie: "Perro",
-      Nombre: "Harry",
-      Examen: "hematologia",
-      Caso: "hematologia.Caso",
-    },
-    "info-3": {
-      Caso: "6826012",
-      Fecha: "24/03/2023",
-      Propietario: "Jorge Bernal",
-      Especie: "Perro",
-      Nombre: "Harry",
-      Examen: "hematologia",
-      Caso: "hematologia.Caso",
-    },
-    "info-4": {
-      Caso: "6826012",
-      Fecha: "24/03/2023",
-      Propietario: "Jorge Bernal",
-      Especie: "Perro",
-      Nombre: "Harry",
-      Examen: "hematologia",
-      Caso: "hematologia.Caso",
-    },
-    "info-5": {
-      Caso: "6826012",
-      Fecha: "24/03/2023",
-      Propietario: "Jorge Bernal",
-      Especie: "Perro",
-      Nombre: "Harry",
-      Examen: "hematologia",
-      Caso: "hematologia.Caso",
-    },
-    "info-6": {
-      Caso: "6826012",
-      Fecha: "24/03/2023",
-      Propietario: "Jorge Bernal",
-      Especie: "Perro",
-      Nombre: "Harry",
-      Examen: "hematologia",
-      Caso: "hematologia.Caso",
-    },
-    "info-7": {
-      Caso: "6826012",
-      Fecha: "24/03/2023",
-      Propietario: "Jorge Bernal",
-      Especie: "Perro",
-      Nombre: "Harry",
-      Examen: "hematologia",
-      Caso: "hematologia.Caso",
-    },
-    "info-8": {
-      Caso: "6826012",
-      Fecha: "24/03/2023",
-      Propietario: "Jorge Bernal",
-      Especie: "Perro",
-      Nombre: "Harry",
-      Examen: "hematologia",
-      Caso: "hematologia.Caso",
-    },
-    "info-9": {
-      Caso: "6826012",
-      Fecha: "24/03/2023",
-      Propietario: "Jorge Bernal",
-      Especie: "Perro",
-      Nombre: "Harry",
-      Examen: "hematologia",
-      Caso: "hematologia.Caso",
-    },
-    "info-10": {
-      Caso: "6826012",
-      Fecha: "24/03/2023",
-      Propietario: "Jorge Bernal",
-      Especie: "Perro",
-      Nombre: "Harry",
-      Examen: "hematologia",
-      Caso: "hematologia.Caso",
-    },
-    "info-11": {
-      Caso: "6826012",
-      Fecha: "24/03/2023",
-      Propietario: "Jorge Bernal",
-      Especie: "Perro",
-      Nombre: "Harry",
-      Examen: "hematologia",
-      Caso: "hematologia.Caso",
-    },
-  };
 
-  /* COMENTAR LA SIGUIENTE LINEA PARA VER EL MODELO CON REGISTROS*/
-    // infoExample = {};
-  for (let i = 0; i < Object.keys(infoExample).length; i++) {
+  var headers = {};
+  var url = "http://localhost:3000";
+
+  var token = localStorage.getItem("token");
+  if (token) {
+    headers = {
+      'Authorization': 'bearer ' + token
+    };
+  } else {
+    window.location.href = "../pages/index.html";
+  }
+
+  try {
+    axios.get(url + "/todos/citas", {
+        headers: headers,
+        params: {}
+      })
+      .then(function (res) {
+        console.log(res); // Mostrar toda la respuesta en la consola
+        if (res.data.code == 200) {
+          var plantilla = {};
+
+          res.data.message.forEach(function (data, index) {
+            var infoKey = "info-" + (index + 1);
+            plantilla[infoKey] = {
+              Caso: data.idHematologia.toString(),
+              Fecha: formatDate(data.fecha),
+              Propietario: data.nombre_propietario,
+              Especie: data.especie,
+              Nombre: data.nombre,
+              Examen: data.tipo
+            };
+
+            displayPlantilla(plantilla[infoKey]);
+          });
+        } else {
+          // Manejar el caso en el que res.data.code no sea 200
+        }
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  } catch (e) {
+    console.log(e);
+  }
+
+  function displayPlantilla(data) {
+    // Rellenar la plantilla con los datos correspondientes
     /* GENERAR ETIQUETAS PARA INFORMACION */
     var card = document.createElement("div");
     var col1 = document.createElement("div");
@@ -132,15 +75,16 @@ document.addEventListener("DOMContentLoaded", function () {
     col5.setAttribute("class", "citas-container-body-columna-5");
     col6.setAttribute("class", "citas-container-body-columna-6");
     childButton.setAttribute("class", "citas-container-button");
-    childButton.setAttribute("href", Object.values(infoExample)[i].Caso);
+    childButton.setAttribute("href", data.Caso);
 
     /* RELLENAR ETIQUETAS */
-    childDate.innerHTML = Object.values(infoExample)[i].Fecha;
-    childPropietary.innerHTML = Object.values(infoExample)[i].Propietario;
-    childAnimal.innerHTML = Object.values(infoExample)[i].Especie;
-    childName.innerHTML = Object.values(infoExample)[i].Nombre;
-    childExam.innerHTML = Object.values(infoExample)[i].Examen;
+    childDate.innerHTML = data.Fecha;
+    childPropietary.innerHTML = data.Propietario;
+    childAnimal.innerHTML = data.Especie;
+    childName.innerHTML = data.Nombre;
+    childExam.innerHTML = data.Examen;
     childButton.innerHTML = "→";
+
     /* ACOMODAR COLUMNAS */
     col1.appendChild(childDate);
     col2.appendChild(childPropietary);
@@ -157,5 +101,23 @@ document.addEventListener("DOMContentLoaded", function () {
     card.append(col6);
     /* AÑADIR CARD AL PARENT */
     parent.append(card);
+  }
+
+  function formatDate(dateString) {
+    // Convertir la fecha en el formato deseado (28/04/2023)
+    var date = new Date(dateString);
+    var day = date.getDate();
+    var month = date.getMonth() + 1; // Los meses son indexados desde 0
+    var year = date.getFullYear();
+
+    // Asegurarse de que el día y el mes tengan dos dígitos
+    if (day < 10) {
+      day = '0' + day;
+    }
+    if (month < 10) {
+      month = '0' + month;
+    }
+
+    return day + '/' + month + '/' + year;
   }
 });
