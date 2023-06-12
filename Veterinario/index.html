@@ -25,7 +25,7 @@
         <a href="citas.html"> SOLICITUDES DE CITA </a>
         <a href="reportes.html"> REPORTES </a>
         <a href="f"> PERFIL </a>
-        <a href="g"> CERRAR SESIÓN </a>
+        <a href="g" id="logout-link"> CERRAR SESIÓN </a>
       </div>
     </div>
     <div class="recuadros">
@@ -48,5 +48,17 @@
         </div>
       </a>
     </div>
-  </body>
+  </body> 
+  <script>
+    document.getElementById('logout-link').addEventListener('click', function (event) {
+        event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+
+        // Eliminar el valor almacenado en localStorage
+        localStorage.removeItem('token');
+        localStorage.removeItem('id');
+
+        // Redireccionar o realizar cualquier otra acción que desees después de cerrar sesión
+        window.location.href = '../pages/index.html'; // Redireccionar a la página de inicio, por ejemplo
+    });
+  </script>
 </html>
