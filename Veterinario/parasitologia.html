@@ -19,7 +19,7 @@
 			<a href="citas.html"> SOLICITUDES DE CITA </a>
 			<a href="reportes.html"> REPORTES </a>
 			<a href="f"> PERFIL </a>
-			<a href="g"> CERRAR SESIÓN </a>
+			<a href="" id="logout-link"> CERRAR SESIÓN </a>
 		</div>
 	</div>
 	<div class="contenedor">
@@ -233,6 +233,16 @@
 		</div>
 	</div>
 	<script>
+		document.getElementById('logout-link').addEventListener('click', function (event) {
+        event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+
+        // Eliminar el valor almacenado en localStorage
+        localStorage.removeItem('token');
+        localStorage.removeItem('id');
+
+        // Redireccionar o realizar cualquier otra acción que desees después de cerrar sesión
+        window.location.href = '../pages/index.html'; // Redireccionar a la página de inicio, por ejemplo
+    	});
 		const textarea1 = document.getElementById("mvz");
 		const col3 = document.getElementById("col3");
 		const col4 = document.getElementById("col4");

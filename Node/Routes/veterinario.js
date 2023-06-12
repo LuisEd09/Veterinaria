@@ -15,7 +15,7 @@ veterinario.post("/login", async (req, res, next) =>{
                 idVeterinario: rows[0].idVeterinario,
                 Correo: rows[0].Correo
             }, "debugkey");
-            return res.status(200).json({code:200 ,  message:token})
+            return res.status(200).json({code:200 ,  message:token, id:rows[0].expediente})
         }else{
             return res.status(200).json({code:200 ,  message:"Correo y/o contraseña incorrectos"})
         }
