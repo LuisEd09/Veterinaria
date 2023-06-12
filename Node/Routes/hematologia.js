@@ -19,6 +19,7 @@ hematologia.get('/:exp([0-9])', async (req, res, next) =>{
 });
 
 //Consulta por caso
+/*
 hematologia.get('/:caso([A-Za-z]+)', async (req, res, next) =>{
     const caso = req.params.caso
     const hema = await db.query("SELECT * FROM hematologia WHERE Caso='"+caso+"';");
@@ -27,6 +28,7 @@ hematologia.get('/:caso([A-Za-z]+)', async (req, res, next) =>{
     }
     return res.status(404).send("Caso no encontrado");
 });
+*/
 
 //Añadir hematologia
 hematologia.post("/", async(req, res, next) =>{
@@ -63,5 +65,18 @@ hematologia.post("/cita", async(req,res,next)=>{
     }
     return res.status(500).json({code:500, message:"Campos Incompletos"});
 })
+
+hematologia.get("/examen", async(req, res, next) =>{
+    const id = req.query.id
+    var query = `SELECT h.fecha, h.especie, h.raza, h.sexo, h.nombre, h.edad, h.castrado, p.nombre AS propietario, p.direccion, p.telefono FROM hematologia h
+    JOIN propietario p ON h.idpropietario = p.idPropietario WHERE idHematologia = ${id}; `;
+
+    const rows = await db.query(query);
+
+    if(rows.length > 0){
+        return res.status(200).json({code: 200, message: rows});
+    }
+    return res.status(404).send({code: 404, message: "No encontrado"});
+});
 
 module.exports = hematologia
