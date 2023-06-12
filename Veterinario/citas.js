@@ -75,7 +75,8 @@ document.addEventListener("DOMContentLoaded", function () {
     col5.setAttribute("class", "citas-container-body-columna-5");
     col6.setAttribute("class", "citas-container-body-columna-6");
     childButton.setAttribute("class", "citas-container-button");
-    childButton.setAttribute("href", data.Caso);
+    var hrefValue = './' + data.Examen + '.html?caso=' + data.Caso;
+    childButton.setAttribute("href", hrefValue);
 
     /* RELLENAR ETIQUETAS */
     childDate.innerHTML = data.Fecha;
