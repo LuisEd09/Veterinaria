@@ -7,6 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Urianalisis</title>
 	<link rel="stylesheet" href="urianalisis.css" />
+	<script src="urianalisis.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -98,7 +100,7 @@
 						<p>Nombre</p>
 					</div>
 					<div class="col6">
-						<input type="text" id="nombre" value="Lucky">
+						<input type="text" id="nombreM" value="Lucky">
 					</div>
 				</div>
 				<div class="linea">
@@ -122,8 +124,8 @@
 					<div class="col4">
 						<select name="sexo" id="sexo">
 							<option>Seleccione</option>
-							<option value="macho">Macho</option>
-							<option value="hembra">Hembra</option>
+							<option value="masculino">Macho</option>
+							<option value="femenino">Hembra</option>
 						</select>
 					</div>
 					<div class="col5">
@@ -205,7 +207,7 @@
 					<p>Proteínas</p>
 				</div>
 				<div class="exC4">
-					<select name="apariencia" id="apariencia">
+					<select name="proteinas" id="proteinas">
 						<option value="0">0</option>
 						<option value="trazas">Trazas</option>
 						<option value="0.15">0.15</option>
@@ -242,7 +244,7 @@
 					<p>Glucosa</p>
 				</div>
 				<div class="exC4">
-					<select name="apariencia" id="apariencia">
+					<select name="glucosa" id="glucosa">
 						<option value="0">0</option>
 						<option value="5">5</option>
 						<option value="15">15</option>
@@ -258,7 +260,7 @@
 					<p>Cetonas</p>
 				</div>
 				<div class="exC6">
-					<select name="apariencia" id="apariencia">
+					<select name="cetonas" id="cetonas">
 						<option value="negativo">Negativo</option>
 						<option value="uno">1+</option>
 						<option value="dos">2+</option>
@@ -277,7 +279,7 @@
 					<p>Sangre/Hg</p>
 				</div>
 				<div class="exC4">
-					<select name="apariencia" id="apariencia">
+					<select name="hg" id="hg">
 						<option value="0">0</option>
 						<option value="5">5 - 10</option>
 						<option value="50">50</option>
@@ -291,7 +293,7 @@
 					<p>Bilirrubina</p>
 				</div>
 				<div class="exC6">
-					<select name="apariencia" id="apariencia">
+					<select name="bilirrubina" id="bilirrubina">
 						<option value="negativo">Negativo</option>
 						<option value="uno">1+</option>
 						<option value="dos">2+</option>
@@ -418,12 +420,18 @@
 			</div>
 		</div>
 		<div class="boton">
-			<div class="registrar">
-				<p>Registrar</p>
+			<div class="registrar" id="registrar">
+				<p id="registrarT">Registrar</p>
 			</div>
 		</div>
 	</div>
 	<script>
+		var registrarButton = document.getElementById("registrar");
+
+		registrarButton.addEventListener("click", function() {
+			send()
+		});
+
 		document.getElementById('logout-link').addEventListener('click', function (event) {
         event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
 

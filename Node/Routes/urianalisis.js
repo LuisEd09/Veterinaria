@@ -81,4 +81,68 @@ urianalisis.get("/examen", async(req, res, next) =>{
     return res.status(404).send({code: 404, message: "No encontrado"});
 });
 
+urianalisis.put("/update", async (req, res, next) => {
+    const id = req.query.id;
+    const {
+        caso, fecha, especie, raza, sexo, mvz, hora, nombre, edad, castrado, expediente, anayex, tratprev, obtencion, color,
+        apariencia, densidad, proteinas, glucosa, sangrehg, ph, cetonas, bilirrubina, eritrocitos, leucocitos, escamosas, 
+        transitorias, cilindros, renales, cristales, lipidos, bacterias, otros, interpretacion, completado, idvet
+    } = req.body;
+  
+    var query = `UPDATE urianalisis SET
+      Caso = '${caso}',
+      Fecha = '${fecha}',
+      Especie = '${especie}',
+      Raza = '${raza}',
+      Sexo = '${sexo}',
+      Mvz = '${mvz}',
+      Hora = '${hora}',
+      Nombre = '${nombre}',
+      Edad = '${edad}',
+      Castrado = '${castrado}',
+      Expediente = '${expediente}',
+      AnaYEx = '${anayex}',
+      TratPrev = '${tratprev}',
+      Obtencion = '${obtencion}',
+      Color = '${color}',
+      Apariencia = '${apariencia}',
+      Densidad = '${densidad}',
+      Proteinas = '${proteinas}',
+      Glucosa = '${glucosa}',
+      SangreHg = '${sangrehg}',
+      pH = '${ph}',
+      Cetonas = '${cetonas}',
+      Bilirrubina = '${bilirrubina}',
+      Eritrocitos = '${eritrocitos}',
+      Leucocitos = '${leucocitos}',
+      Escamosas = '${escamosas}',
+      Transitorias = '${transitorias}',
+      Cilindros = '${cilindros}',
+      Renales = '${renales}',
+      Cristales = '${cristales}',
+      Lipidos = '${lipidos}',
+      Bacterias = '${bacterias}',
+      Otros = '${otros}',
+      Interpretacion = '${interpretacion}',
+      Completado = '${completado}',
+      idVeterinario = '${idvet}'
+      WHERE idUrianalisis = '${id}'`;
+  
+    try {
+        if(caso && fecha && especie && raza && sexo && mvz && hora && nombre && edad && castrado && expediente && anayex && tratprev && obtencion && color &&
+        apariencia && densidad && proteinas && glucosa && sangrehg && ph && cetonas && bilirrubina && eritrocitos && leucocitos && escamosas &&
+        transitorias && cilindros && renales && cristales && lipidos && bacterias && otros && interpretacion && completado && idvet){
+            const rows = await db.query(query);
+            if(rows.affectedRows == 1){
+                return res.status(201).json({ code: 201, message: "Actualizado exitosamente" });
+            }
+            return res.status(500).json({ code: 500, message: "Error, affected rows != 1" });
+        }else{
+            return res.status(400).json({ code: 400, message: "Datos incompletos" });
+        }
+    } catch (error) {
+      return res.status(500).json({ code: 500, message: error });
+    } 
+  });
+
 module.exports = urianalisis
