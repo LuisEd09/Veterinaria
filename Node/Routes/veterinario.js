@@ -23,4 +23,15 @@ veterinario.post("/login", async (req, res, next) =>{
     return res.status(500).json({code:200 ,  message:"Campos incompletos"})
 });
 
+veterinario.get("/info", async (req, res, next) =>{
+    const id = req.query.id
+    var query = `SELECT Nombre, expediente FROM veterinario WHERE idVeterinario = ${id}; `;
+
+    const rows = await db.query(query);
+
+    if(rows.length > 0){
+        return res.status(200).json({code: 200, message: rows});
+    }
+    return res.status(404).send({code: 404, message: "No encontrado"});
+});
 module.exports = veterinario

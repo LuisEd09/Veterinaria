@@ -19,6 +19,7 @@ urianalisis.get('/:exp([0-9])', async (req, res, next) =>{
 });
 
 //Consulta por caso
+/*
 urianalisis.get('/:caso([A-Za-z]+)', async (req, res, next) =>{
     const caso = req.params.caso
     const uria = await db.query("SELECT * FROM urianalisis WHERE Caso='"+caso+"';");
@@ -27,6 +28,7 @@ urianalisis.get('/:caso([A-Za-z]+)', async (req, res, next) =>{
     }
     return res.status(404).send("Caso no encontrado");
 });
+*/
 
 //Añadir urianalisis
 urianalisis.post("/", async(req, res, next) =>{
@@ -65,5 +67,18 @@ urianalisis.post("/cita", async(req,res,next)=>{
     }
     return res.status(500).json({code:500, message:"Campos Incompletos"});
 })
+
+urianalisis.get("/examen", async(req, res, next) =>{
+    const id = req.query.id
+    var query = `SELECT uri.fecha, uri.especie, uri.raza, uri.sexo, uri.nombre, uri.edad, uri.castrado, p.nombre AS propietario, p.direccion, p.telefono FROM urianalisis uri
+    JOIN propietario p ON uri.idpropietario = p.idPropietario WHERE idUrianalisis = ${id}; `;
+
+    const rows = await db.query(query);
+
+    if(rows.length > 0){
+        return res.status(200).json({code: 200, message: rows});
+    }
+    return res.status(404).send({code: 404, message: "No encontrado"});
+});
 
 module.exports = urianalisis
