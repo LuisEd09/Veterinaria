@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
     childAnimal.innerHTML = data.Especie;
     childName.innerHTML = data.Nombre;
     childExam.innerHTML = data.Examen;
-    childButton.innerHTML = "→";
+    childButton.innerHTML = ">";
 
     /* ACOMODAR COLUMNAS */
     col1.appendChild(childDate);
