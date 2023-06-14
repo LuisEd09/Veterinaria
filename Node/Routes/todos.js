@@ -4,9 +4,9 @@ const db = require('../config/database');
 
 todos.get("/examenes", async(req,res,next)=>{
     const id = req.query.id
-    var query = `SELECT idHematologia, fecha, 'Hematologia' AS tipo FROM hematologia WHERE idPropietario = ${id} AND completado = 'si' `;
-    query += `UNION ALL SELECT idParasitologia, fecha, 'Parasitologia' AS tipo FROM parasitologia WHERE idPropietario = ${id} AND completado = 'si' `;
-    query += `UNION ALL SELECT idUrianalisis, fecha, 'Urianalisis' AS tipo FROM urianalisis WHERE idPropietario = ${id} AND completado = 'si' `;
+    var query = `SELECT idHematologia, completado, fecha, 'Hematologia' AS tipo FROM hematologia WHERE idPropietario = ${id} `;
+    query += `UNION ALL SELECT idParasitologia, completado, fecha, 'Parasitologia' AS tipo FROM parasitologia WHERE idPropietario = ${id} `;
+    query += `UNION ALL SELECT idUrianalisis, completado, fecha, 'Urianalisis' AS tipo FROM urianalisis WHERE idPropietario = ${id} `;
     query += 'ORDER BY fecha ASC;'
 
     const rows = await db.query(query);

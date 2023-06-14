@@ -88,19 +88,33 @@ function displayExamenes(examenes) {
     var cubreImagen = document.getElementById("cubreImagen");
     var myModal = document.getElementById("myModal");
     for (var i = 0; i < examenes.length; i++) {
-        examen.innerHTML += `
-					<div class="linea2">
-						<div class="tipo">
-							<p>${examenes[i].tipo}</p>
-						</div>
-						<div class="fecha">
-							<p>${formatearFecha(examenes[i].fecha)}</p>
-						</div>
-						<div class="lBtn">
-							<p>Ver examen</p>
-						</div>
-					</div>
-                    `
+        if(examenes[i].completado == 'si'){
+            examen.innerHTML += `
+                        <div class="linea2">
+                            <div class="tipo">
+                                <p>${examenes[i].tipo}</p>
+                            </div>
+                            <div class="fecha">
+                                <p>${formatearFecha(examenes[i].fecha)}</p>
+                            </div>
+                            <div class="lBtn">
+                                <p>Ver examen</p>
+                            </div>
+                        </div>
+                        `
+        }else{
+            examen.innerHTML += `
+                        <div class="linea2">
+                            <div class="tipo">
+                                <p>${examenes[i].tipo}</p>
+                            </div>
+                            <div class="fecha">
+                                <p>${formatearFecha(examenes[i].fecha)}</p>
+                            </div>
+                            <p>Pendiente</p>
+                        </div>
+                        `
+        }
     }
     cubreImagen.innerHTML += ` 
                 <div class="imagenD">
