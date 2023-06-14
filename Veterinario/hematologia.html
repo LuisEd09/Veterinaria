@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hematología</title>
     <link rel="stylesheet" href="hematologia.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="hematologia.js"></script>
   </head>
 
   <body>
@@ -31,8 +33,7 @@
               <p>Caso</p>
             </div>
             <div class="col2">
-              <!-- <p>23-UA-</p> -->
-              <input type="text" id="caso" value="23-UA-" />
+              <input type="text" id="caso" placeholder="Llenar Aqui"/>
             </div>
           </div>
           <div class="linea">
@@ -40,12 +41,7 @@
               <p>Propietario</p>
             </div>
             <div class="col2">
-              <!-- <p>Nombre Nombre Apellido Apellido</p> -->
-              <input
-                type="text"
-                id="nombre"
-                value="Nombre Nombre Apellido Apellido"
-              />
+              <input type="text" id="nombre" />
             </div>
           </div>
           <div class="linea">
@@ -53,12 +49,7 @@
               <p>Dirección</p>
             </div>
             <div class="col2">
-              <!-- <p>Calle ##, Colonia Ciudad</p> -->
-              <input
-                type="text"
-                id="direccion"
-                value="Calle ##, Colonia Ciudad"
-              />
+              <input type="text" id="direccion" />
             </div>
           </div>
           <div class="linea">
@@ -66,8 +57,7 @@
               <p>Teléfono</p>
             </div>
             <div class="col2">
-              <!-- <p>4424424424</p> -->
-              <input type="text" id="telefono" value="4424424424" />
+              <input type="text" id="telefono" />
             </div>
           </div>
         </div>
@@ -78,14 +68,14 @@
             </div>
             <div class="col4">
               <!-- <p>02/07/2023</p> -->
-              <input type="date" id="fecha" value="2023-07-02" />
+              <input type="date" id="fecha" />
             </div>
             <div class="col5">
               <p>Hora</p>
             </div>
             <div class="col6">
               <!-- <p>11:11</p> -->
-              <input type="time" id="hora" value="11:11" />
+              <input type="time" id="hora" />
             </div>
           </div>
           <div class="linea">
@@ -105,7 +95,7 @@
               <p>Nombre</p>
             </div>
             <div class="col6">
-              <input type="text" id="nombre" value="Lucky" />
+              <input type="text" id="nombreM" />
             </div>
           </div>
           <div class="linea">
@@ -113,13 +103,13 @@
               <p>Raza</p>
             </div>
             <div class="col4">
-              <input type="text" id="raza" value="Golden retreiver" />
+              <input type="text" id="raza" />
             </div>
             <div class="col5">
               <p>Edad</p>
             </div>
             <div class="col6">
-              <input type="number" id="edad" value="0" />
+              <input type="number" id="edad" />
             </div>
           </div>
           <div class="linea">
@@ -129,8 +119,8 @@
             <div class="col4">
               <select name="sexo" id="sexo">
                 <option>Seleccione</option>
-                <option value="macho">Macho</option>
-                <option value="hembra">Hembra</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
               </select>
             </div>
             <div class="col5">
@@ -149,15 +139,13 @@
               <p>Mvz</p>
             </div>
             <div class="col4" id="col4">
-              <textarea type="text" id="mvz" placeholder="Nombre Apellido">
-Nombre Apellido</textarea
-              >
+              <textarea type="text" id="mvz" placeholder="Llenar Aqui"></textarea>
             </div>
             <div class="col5" id="col5">
               <p>Expediente</p>
             </div>
             <div class="col6" id="col6">
-              <input type="text" id="expediente" value="123456456" />
+              <input type="text" id="expediente" placeholder="Llenar Aqui"/>
             </div>
           </div>
         </div>
@@ -186,7 +174,7 @@ Nombre Apellido</textarea
           </div>
         </div>
       </div>
-      <br>
+      <br />
       <table class="tabla3">
         <thead>
           <tr>
@@ -203,9 +191,11 @@ Nombre Apellido</textarea
           <!-- HEMATOCRITO -->
           <tr>
             <td><p>Hematocrito</p></td>
-            <td><input type="text" id="lname" class="inputTabla3Corto"/></td>
             <td>
-              <select class="variacion" name="variacion" id="variacion">
+              <input type="text" id="Hematocrito" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+            </td>
+            <td>
+              <select class="variacion" name="variacion" id="HematocritoV">
                 <option value="null">-</option>
                 <option value="bajo">Bajo</option>
                 <option value="alto">Alto</option>
@@ -216,7 +206,11 @@ Nombre Apellido</textarea
             <td><p>L/L</p></td>
             <td><p>Anisocitosis</p></td>
             <td>
-              <select class="variacion" name="morfologiaDropdown" id="morfologiaDropdown">
+              <select
+                class="variacion"
+                name="morfologiaDropdown"
+                id="Anisocitosis"
+              >
                 <option value="null">-</option>
                 <option value="1+">1+</option>
                 <option value="2+">2+</option>
@@ -227,9 +221,11 @@ Nombre Apellido</textarea
           <!-- HEMOGLOBINA -->
           <tr>
             <td><p>Hemoglobina</p></td>
-            <td><input type="text" id="lname" class="inputTabla3Corto" /></td>
             <td>
-              <select class="variacion" name="variacion" id="variacion">
+              <input type="text" id="Hemoglobina" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+            </td>
+            <td>
+              <select class="variacion" name="variacion" id="HemoglobinaV">
                 <option value="null">-</option>
                 <option value="bajo">Bajo</option>
                 <option value="alto">Alto</option>
@@ -240,7 +236,11 @@ Nombre Apellido</textarea
             <td><p>g/L</p></td>
             <td><p>Policromasia</p></td>
             <td>
-              <select class="variacion" name="morfologiaDropdown" id="morfologiaDropdown">
+              <select
+                class="variacion"
+                name="morfologiaDropdown"
+                id="Policromasia"
+              >
                 <option value="null">-</option>
                 <option value="1+">1+</option>
                 <option value="2+">2+</option>
@@ -251,9 +251,11 @@ Nombre Apellido</textarea
           <!-- Eritrocitos -->
           <tr>
             <td><p>Eritrocitos</p></td>
-            <td><input type="text" id="lname" class="inputTabla3Corto" /></td>
             <td>
-              <select class="variacion" name="variacion" id="variacion">
+              <input type="text" id="Eritrocitos" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+            </td>
+            <td>
+              <select class="variacion" name="variacion" id="EritrocitosV">
                 <option value="null">-</option>
                 <option value="bajo">Bajo</option>
                 <option value="alto">Alto</option>
@@ -264,7 +266,11 @@ Nombre Apellido</textarea
             <td><p>x10^12/L</p></td>
             <td><p>P. Basofílico</p></td>
             <td>
-              <select class="variacion" name="morfologiaDropdown" id="morfologiaDropdown">
+              <select
+                class="variacion"
+                name="morfologiaDropdown"
+                id="PBasofilico"
+              >
                 <option value="null">-</option>
                 <option value="1+">1+</option>
                 <option value="2+">2+</option>
@@ -275,9 +281,9 @@ Nombre Apellido</textarea
           <!-- VGM -->
           <tr>
             <td><p>VGM</p></td>
-            <td><input type="text" id="lname" class="inputTabla3Corto" /></td>
+            <td><input type="text" id="VGM" class="inputTabla3Corto" placeholder="Llenar Aqui" /></td>
             <td>
-              <select class="variacion" name="variacion" id="variacion">
+              <select class="variacion" name="variacion" id="VGMV">
                 <option value="null">-</option>
                 <option value="bajo">Bajo</option>
                 <option value="alto">Alto</option>
@@ -288,7 +294,11 @@ Nombre Apellido</textarea
             <td><p>fL</p></td>
             <td><p>Hipocromía</p></td>
             <td>
-              <select class="variacion" name="morfologiaDropdown" id="morfologiaDropdown">
+              <select
+                class="variacion"
+                name="morfologiaDropdown"
+                id="Hipocromia"
+              >
                 <option value="null">-</option>
                 <option value="1+">1+</option>
                 <option value="2+">2+</option>
@@ -299,9 +309,9 @@ Nombre Apellido</textarea
           <!-- CGMH -->
           <tr>
             <td><p>CGMH</p></td>
-            <td><input type="text" id="lname" class="inputTabla3Corto" /></td>
+            <td><input type="text" id="CGMH" class="inputTabla3Corto" placeholder="Llenar Aqui" /></td>
             <td>
-              <select class="variacion" name="variacion" id="variacion">
+              <select class="variacion" name="variacion" id="CGMHV">
                 <option value="null">-</option>
                 <option value="bajo">Bajo</option>
                 <option value="alto">Alto</option>
@@ -312,7 +322,11 @@ Nombre Apellido</textarea
             <td><p>g/L</p></td>
             <td><p>Aglutinación</p></td>
             <td>
-              <select class="variacion" name="morfologiaDropdown" id="morfologiaDropdown">
+              <select
+                class="variacion"
+                name="morfologiaDropdown"
+                id="Aglutinacion"
+              >
                 <option value="null">-</option>
                 <option value="1+">1+</option>
                 <option value="2+">2+</option>
@@ -323,9 +337,11 @@ Nombre Apellido</textarea
           <!-- Reticulocitos -->
           <tr>
             <td><p>Reticulocitos</p></td>
-            <td><input type="text" id="lname" class="inputTabla3Corto" /></td>
             <td>
-              <select class="variacion" name="variacion" id="variacion">
+              <input type="text" id="Reticulocitos" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+            </td>
+            <td>
+              <select class="variacion" name="variacion" id="ReticulocitosV">
                 <option value="null">-</option>
                 <option value="bajo">Bajo</option>
                 <option value="alto">Alto</option>
@@ -336,7 +352,7 @@ Nombre Apellido</textarea
             <td><p>x10^9/L</p></td>
             <td><p>Rouleaux</p></td>
             <td>
-              <select class="variacion" name="morfologiaDropdown" id="morfologiaDropdown">
+              <select class="variacion" name="morfologiaDropdown" id="Rouleaux">
                 <option value="null">-</option>
                 <option value="1+">1+</option>
                 <option value="2+">2+</option>
@@ -347,9 +363,11 @@ Nombre Apellido</textarea
           <!-- Plaquetas -->
           <tr>
             <td><p>Plaquetas</p></td>
-            <td><input type="text" id="lname" class="inputTabla3Corto" /></td>
             <td>
-              <select class="variacion" name="variacion" id="variacion">
+              <input type="text" id="Plaquetas" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+            </td>
+            <td>
+              <select class="variacion" name="variacion" id="PlaquetasV">
                 <option value="null">-</option>
                 <option value="bajo">Bajo</option>
                 <option value="alto">Alto</option>
@@ -360,7 +378,11 @@ Nombre Apellido</textarea
             <td><p>x10^9/L</p></td>
             <td><p>Metarrubricitos</p></td>
             <td>
-              <select class="variacion" name="morfologiaDropdown" id="morfologiaDropdown">
+              <select
+                class="variacion"
+                name="morfologiaDropdown"
+                id="Metarrubricitos"
+              >
                 <option value="null">-</option>
                 <option value="1+">1+</option>
                 <option value="2+">2+</option>
@@ -371,9 +393,9 @@ Nombre Apellido</textarea
           <!-- Sólidos Totales -->
           <tr>
             <td><p>Sólidos Totales</p></td>
-            <td><input type="text" id="lname" class="inputTabla3Corto" /></td>
+            <td><input type="text" id="Solidos" class="inputTabla3Corto" placeholder="Llenar Aqui" /></td>
             <td>
-              <select class="variacion" name="variacion" id="variacion">
+              <select class="variacion" name="variacion" id="SolidosV">
                 <option value="null">-</option>
                 <option value="bajo">Bajo</option>
                 <option value="alto">Alto</option>
@@ -384,7 +406,11 @@ Nombre Apellido</textarea
             <td><p>g/L</p></td>
             <td><p>Poiquilocitosis</p></td>
             <td>
-              <select class="variacion" name="morfologiaDropdown" id="morfologiaDropdown">
+              <select
+                class="variacion"
+                name="morfologiaDropdown"
+                id="Poiquilocitosis"
+              >
                 <option value="null">-</option>
                 <option value="1+">1+</option>
                 <option value="2+">2+</option>
@@ -395,9 +421,11 @@ Nombre Apellido</textarea
           <!-- Leucocitos Totales -->
           <tr>
             <td><p>Leucocitos Totales</p></td>
-            <td><input type="text" id="lname" class="inputTabla3Corto" /></td>
             <td>
-              <select class="variacion" name="variacion" id="variacion">
+              <input type="text" id="Leucocitos" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+            </td>
+            <td>
+              <select class="variacion" name="variacion" id="LeucocitosV">
                 <option value="null">-</option>
                 <option value="bajo">Bajo</option>
                 <option value="alto">Alto</option>
@@ -406,14 +434,23 @@ Nombre Apellido</textarea
             </td>
             <td><p>6.0 – 17.0</p></td>
             <td><p>x10^9/L</p></td>
-            <td colspan="2" rowspan="3"><input type="text" id="lname" class="inputTabla3Cuadrado" placeholder="Tipo"/></td>
+            <td colspan="2" rowspan="3">
+              <input
+                type="text"
+                id="Tipo"
+                class="inputTabla3Cuadrado"
+                placeholder="Tipo Llenar Aqui"
+              />
+            </td>
           </tr>
           <!-- Neutrófilos -->
           <tr>
             <td><p>Neutrófilos</p></td>
-            <td><input type="text" id="lname" class="inputTabla3Corto" /></td>
             <td>
-              <select class="variacion" name="variacion" id="variacion">
+              <input type="text" id="Neutrofilos" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+            </td>
+            <td>
+              <select class="variacion" name="variacion" id="NeutrofilosV">
                 <option value="null">-</option>
                 <option value="bajo">Bajo</option>
                 <option value="alto">Alto</option>
@@ -426,9 +463,9 @@ Nombre Apellido</textarea
           <!-- Bandas -->
           <tr>
             <td><p>Bandas</p></td>
-            <td><input type="text" id="lname" class="inputTabla3Corto" /></td>
+            <td><input type="text" id="Bandas" class="inputTabla3Corto" placeholder="Llenar Aqui" /></td>
             <td>
-              <select class="variacion" name="variacion" id="variacion">
+              <select class="variacion" name="variacion" id="BandasV">
                 <option value="null">-</option>
                 <option value="bajo">Bajo</option>
                 <option value="alto">Alto</option>
@@ -441,9 +478,11 @@ Nombre Apellido</textarea
           <!-- Linfocitos -->
           <tr>
             <td><p>Linfocitos</p></td>
-            <td><input type="text" id="lname" class="inputTabla3Corto" /></td>
             <td>
-              <select class="variacion" name="variacion" id="variacion">
+              <input type="text" id="Linfocitos" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+            </td>
+            <td>
+              <select class="variacion" name="variacion" id="LinfocitosV">
                 <option value="null">-</option>
                 <option value="bajo">Bajo</option>
                 <option value="alto">Alto</option>
@@ -454,7 +493,11 @@ Nombre Apellido</textarea
             <td><p>x10^9/L</p></td>
             <td><p>Neutrófilos tóxicos</p></td>
             <td>
-              <select class="variacion" name="morfologiaDropdown" id="morfologiaDropdown">
+              <select
+                class="variacion"
+                name="morfologiaDropdown"
+                id="NeutrofilosToxicos"
+              >
                 <option value="null">-</option>
                 <option value="1+">1+</option>
                 <option value="2+">2+</option>
@@ -465,9 +508,11 @@ Nombre Apellido</textarea
           <!-- Monocitos -->
           <tr>
             <td><p>Monocitos</p></td>
-            <td><input type="text" id="lname" class="inputTabla3Corto" /></td>
             <td>
-              <select class="variacion" name="variacion" id="variacion">
+              <input type="text" id="Monocitos" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+            </td>
+            <td>
+              <select class="variacion" name="variacion" id="MonocitosV">
                 <option value="null">-</option>
                 <option value="bajo">Bajo</option>
                 <option value="alto">Alto</option>
@@ -478,7 +523,11 @@ Nombre Apellido</textarea
             <td><p>x10^9/L</p></td>
             <td><p>Linfocitos reactivos</p></td>
             <td>
-              <select class="variacion" name="morfologiaDropdown" id="morfologiaDropdown">
+              <select
+                class="variacion"
+                name="morfologiaDropdown"
+                id="LinfocitosReactivos"
+              >
                 <option value="null">-</option>
                 <option value="1+">1+</option>
                 <option value="2+">2+</option>
@@ -489,9 +538,11 @@ Nombre Apellido</textarea
           <!-- Eosinófilos -->
           <tr>
             <td><p>Eosinófilos</p></td>
-            <td><input type="text" id="lname" class="inputTabla3Corto" /></td>
             <td>
-              <select class="variacion" name="variacion" id="variacion">
+              <input type="text" id="Eosinofilos" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+            </td>
+            <td>
+              <select class="variacion" name="variacion" id="EosinofilosV">
                 <option value="null">-</option>
                 <option value="bajo">Bajo</option>
                 <option value="alto">Alto</option>
@@ -502,7 +553,11 @@ Nombre Apellido</textarea
             <td><p>x10^9/L</p></td>
             <td><p>Mielo. Inmaduros</p></td>
             <td>
-              <select class="variacion" name="morfologiaDropdown" id="morfologiaDropdown">
+              <select
+                class="variacion"
+                name="morfologiaDropdown"
+                id="MieloInmaduros"
+              >
                 <option value="null">-</option>
                 <option value="1+">1+</option>
                 <option value="2+">2+</option>
@@ -513,9 +568,11 @@ Nombre Apellido</textarea
           <!-- Basófilos -->
           <tr>
             <td><p>Basófilos</p></td>
-            <td><input type="text" id="lname" class="inputTabla3Corto" /></td>
             <td>
-              <select class="variacion" name="variacion" id="variacion">
+              <input type="text" id="Basofilos" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+            </td>
+            <td>
+              <select class="variacion" name="variacion" id="BasofilosV">
                 <option value="null">-</option>
                 <option value="bajo">Bajo</option>
                 <option value="alto">Alto</option>
@@ -526,7 +583,11 @@ Nombre Apellido</textarea
             <td><p>x10^9/L</p></td>
             <td><p>Microfilarias</p></td>
             <td>
-              <select class="variacion" name="morfologiaDropdown" id="morfologiaDropdown">
+              <select
+                class="variacion"
+                name="morfologiaDropdown"
+                id="Microfilarias"
+              >
                 <option value="null">-</option>
                 <option value="1+">1+</option>
                 <option value="2+">2+</option>
@@ -537,10 +598,21 @@ Nombre Apellido</textarea
           <!-- Artefactos -->
           <tr>
             <td><p>Artefactos</p></td>
-            <td colspan="4"><input type="text" id="lname" class="inputTabla3Largo" placeholder="Ninguno" /></td>
+            <td colspan="4">
+              <input
+                type="text"
+                id="Artefactos"
+                class="inputTabla3Largo"
+                placeholder="Llenar Aqui"
+              />
+            </td>
             <td><p>Macroplaquetas</p></td>
             <td>
-              <select class="variacion" name="morfologiaDropdown" id="morfologiaDropdown">
+              <select
+                class="variacion"
+                name="morfologiaDropdown"
+                id="Macroplaquetas"
+              >
                 <option value="null">-</option>
                 <option value="1+">1+</option>
                 <option value="2+">2+</option>
@@ -555,87 +627,14 @@ Nombre Apellido</textarea
           <p>Interpretación</p>
         </div>
         <div class="interTxt" id="interTxt">
-          <textarea id="interpretacion"></textarea>
+          <textarea id="Interpretacion" placeholder="Llenar Aqui"></textarea>
         </div>
       </div>
       <div class="boton">
-        <div class="registrar">
+        <div id="registrar" class="registrar">
           <p>Registrar</p>
         </div>
       </div>
     </div>
-    <script>
-      document
-        .getElementById("logout-link")
-        .addEventListener("click", function (event) {
-          event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
-
-          // Eliminar el valor almacenado en localStorage
-          localStorage.removeItem("token");
-          localStorage.removeItem("id");
-
-          // Redireccionar o realizar cualquier otra acción que desees después de cerrar sesión
-          window.location.href = "../pages/index.html"; // Redireccionar a la página de inicio, por ejemplo
-        });
-      const textarea1 = document.getElementById("mvz");
-      const col3 = document.getElementById("col3");
-      const col4 = document.getElementById("col4");
-      const col5 = document.getElementById("col5");
-      const col6 = document.getElementById("col6");
-
-      textarea1.addEventListener("input", function () {
-        this.style.height = "4.5vh";
-        this.style.height =
-          (this.scrollHeight > this.offsetHeight
-            ? this.scrollHeight
-            : this.offsetHeight) + "px";
-
-        col3.style.height = this.style.height;
-        col4.style.height = this.style.height;
-        col5.style.height = this.style.height;
-        col6.style.height = this.style.height;
-      });
-
-      const textarea = document.getElementById("previo");
-      const col9 = document.getElementById("col9");
-      const col10 = document.getElementById("col10");
-
-      textarea.addEventListener("input", function () {
-        this.style.height = "4.5vh";
-        this.style.height =
-          (this.scrollHeight > this.offsetHeight
-            ? this.scrollHeight
-            : this.offsetHeight) + "px";
-
-        col9.style.height = this.style.height;
-        col10.style.height = this.style.height;
-      });
-
-      const textarea2 = document.getElementById("anamnesis");
-      const col7 = document.getElementById("col7");
-      const col8 = document.getElementById("col8");
-
-      textarea2.addEventListener("input", function () {
-        this.style.height = "auto";
-        this.style.height = this.scrollHeight + "px";
-        col7.style.height = this.style.height;
-        col8.style.height = this.style.height;
-      });
-
-      const textarea3 = document.getElementById("interpretacion");
-      const interTxt = document.getElementById("interTxt");
-      const interT = document.getElementById("interT");
-
-      textarea3.addEventListener("input", function () {
-        this.style.height = "4.5vh";
-        this.style.height =
-          (this.scrollHeight > this.offsetHeight
-            ? this.scrollHeight
-            : this.offsetHeight) + "px";
-
-        interTxt.style.height = this.style.height;
-        interT.style.height = this.style.height;
-      });
-    </script>
   </body>
 </html>

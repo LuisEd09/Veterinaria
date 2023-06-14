@@ -68,7 +68,7 @@ hematologia.post("/cita", async(req,res,next)=>{
 
 hematologia.get("/examen", async(req, res, next) =>{
     const id = req.query.id
-    var query = `SELECT h.fecha, h.especie, h.raza, h.sexo, h.nombre, h.edad, h.castrado, p.nombre AS propietario, p.direccion, p.telefono FROM hematologia h
+    var query = `SELECT h.fecha, h.especie, h.raza, h.sexo, h.nombre, h.edad, h.castrado, h.mvz, h.expediente, p.nombre AS propietario, p.direccion, p.telefono, p.idPropietario AS propietarioID FROM hematologia h
     JOIN propietario p ON h.idpropietario = p.idPropietario WHERE idHematologia = ${id}; `;
 
     const rows = await db.query(query);
@@ -80,16 +80,15 @@ hematologia.get("/examen", async(req, res, next) =>{
 });
 
 hematologia.put("/update", async(req, res, next) => {
-    const id = req.body.id;
-    const {
+    const [
         value1, value2, value3, value4, value5, value6, value7, value8, value9, value10,
         value11, value12, value13, value14, value15, value16, value17, value18, value19, value20,
         value21, value22, value23, value24, value25, value26, value27, value28, value29, value30,
         value31, value32, value33, value34, value35, value36, value37, value38, value39, value40,
         value41, value42, value43, value44, value45, value46, value47, value48, value49, value50,
         value51, value52, value53, value54, value55, value56, value57, value58, value59, value60,
-        value61, value62
-    } = req.body;
+        value61, value62, value63
+     ] = Object.values(req.body);
 
     var query = `UPDATE hematologia SET
         IdHematologia = '${value1}',
@@ -136,6 +135,7 @@ hematologia.put("/update", async(req, res, next) => {
         EosinofilosV = '${value42}',
         Basofilos = '${value43}',
         BasofilosV = '${value44}',
+        Anisocitosis = '${value63}',
         Policromasia = '${value45}',
         PBasofilico = '${value46}',
         Hipocromia = '${value47}',
@@ -154,11 +154,10 @@ hematologia.put("/update", async(req, res, next) => {
         Completado = '${value60}',
         idPropietario = '${value61}',
         idVeterinario = '${value62}'
-        WHERE IdHematologia = ${id}`;
-
+        WHERE IdHematologia = ${value1}`;
     try {
         await db.query(query);
-        return res.status(200).json({ code: 200, message: "Actualizado exitosamente" });
+        return res.status(201).json({ code: 201, message: "Actualizado exitosamente" });
     } catch (error) {
         return res.status(500).json({ code: 500, message: "Error en el servidor" });
     }
