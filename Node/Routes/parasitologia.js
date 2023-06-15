@@ -82,33 +82,26 @@ parasitologia.get("/examen", async(req, res, next) =>{
 parasitologia.put("/update", async (req, res, next) => {
     const id = req.body.id;
     const {
-      value1, value2, value3, value4, value5, value6, value7, value8, value9, value10,
-      value11, value12, value13, value14, value15, value16, value17, value18, value19, value20,
-      value21
+      nombre, fecha, especie, raza, edad, sexo, castrado, expediente, caso, hora,
+      mvz, tecnica, observacion, anayex, tratprev
     } = req.body;
   
     var query = `UPDATE parasitologia SET
-      IdParasitologia = '${value1}',
-      Caso = '${value2}',
-      Fecha = '${value3}',
-      Especie = '${value4}',
-      Raza = '${value5}',
-      Sexo = '${value6}',
-      Mvz = '${value7}',
-      Hora = '${value8}',
-      Nombre = '${value9}',
-      Edad = '${value10}',
-      Castrado = '${value11}',
-      Expediente = '${value12}',
-      AnaYEx = '${value13}',
-      TratPrev = '${value14}',
-      TipoMuestra = '${value15}',
-      Tecnica = '${value16}',
-      Resultado = '${value17}',
-      Observaciones = '${value18}',
-      Completado = '${value19}',
-      idPropietario = '${value20}',
-      idVeterinario = '${value21}'
+      Caso = '${caso}',
+      Fecha = '${fecha}',
+      Especie = '${especie}',
+      Raza = '${raza}',
+      Sexo = '${sexo}',
+      Mvz = '${mvz}',
+      Hora = '${hora}',
+      Nombre = '${nombre}',
+      Edad = '${edad}',
+      Castrado = '${castrado}',
+      Expediente = '${expediente}',
+      AnaYEx = '${anayex}',
+      TratPrev = '${tratprev}',
+      Tecnica = '${tecnica}',
+      Observaciones = '${observacion}',
       WHERE 1`;
   
     try {
