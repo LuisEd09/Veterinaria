@@ -7,6 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Urianalisis</title>
 	<link rel="stylesheet" href="parasitologia.css" />
+	<script src="parasitologia.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -98,7 +100,7 @@
 						<p>Nombre</p>
 					</div>
 					<div class="col6">
-						<input type="text" id="nombre" value="Lucky">
+						<input type="text" id="nombrem" value="Lucky">
 					</div>
 				</div>
 				<div class="linea">
@@ -122,8 +124,8 @@
 					<div class="col4">
 						<select name="sexo" id="sexo">
 							<option>Seleccione</option>
-							<option value="macho">Macho</option>
-							<option value="hembra">Hembra</option>
+							<option value="masculino">Macho</option>
+							<option value="femenino">Hembra</option>
 						</select>
 					</div>
 					<div class="col5">
@@ -210,7 +212,7 @@
 				<div class="miC1">
 					<p>resultados</p>
 				</div>
-				<div class="miC3">
+				<div class="miC3" id="resultados">
 					<p></p>
 				</div>
 			</div>
@@ -221,7 +223,7 @@
 			<div class="interT" id="interT">
 				<p>Observaciones</p>
 			</div>
-			<div class="interTxt" id="interTxt">
+			<div class="interTxt" id="observacion">
 				<textarea id="interpretacion"></textarea>
 			</div>
 		</div>
