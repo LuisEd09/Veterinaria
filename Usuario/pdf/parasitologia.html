@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Urianalisis</title>
+	<link rel="stylesheet" href="parasitologia.css" />
+	<script src="pdfs.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body onload="cargarDatos()">
+	<button id="generate-pdf" onclick="generarPdf()"> EnlaceGenerar PDF</button>
+
+	</div>
+	<div class="contenedor">
+		<div class="title">
+			<p>Resultados Parasitologia</p>
+		</div>
+		<div class="datos">
+			<div class="tabla1">
+				<div class="linea">
+					<div class="col1">
+						<p>Caso</p>
+					</div>
+					<div class="col2">
+						<!-- <p>23-UA-</p> -->
+						<p  id="caso" ></p>
+					</div>
+				</div>
+				<div class="linea">
+					<div class="col1">
+						<p>Propietario</p>
+					</div>
+					<div class="col2">
+						<!-- <p>Nombre Nombre Apellido Apellido</p> -->
+						<p  id="nombre" ></p>
+					</div>
+				</div>
+				<div class="linea">
+					<div class="col1">
+						<p>Dirección</p>
+					</div>
+					<div class="col2">
+						<!-- <p>Calle ##, Colonia Ciudad</p> -->
+						<p  id="direccion" ></p>
+					</div>
+				</div>
+				<div class="linea">
+					<div class="col1">
+						<p>Teléfono</p>
+					</div>
+					<div class="col2">
+						<!-- <p>4424424424</p> -->
+						<p  id="telefono" ></p>
+					</div>
+				</div>
+			</div>
+			<div class="tabla2">
+				<div class="linea">
+					<div class="col3">
+						<p>Fecha</p>
+					</div>
+					<div class="col4">
+						<!-- <p>02/07/2023</p> -->
+						<p id="fecha"></p>
+					</div>
+					<div class="col5">
+						<p>Hora</p>
+					</div>
+					<div class="col6">
+						<!-- <p>11:11</p> -->
+						<p id="hora"></p>
+					</div>
+				</div>
+				<div class="linea">
+					<div class="col3">
+						<p>Especie</p>
+					</div>
+					<div class="col4">
+						<p name="especie" id="especie">
+							
+						</p>
+					</div>
+					<div class="col5">
+						<p>Nombre</p>
+					</div>
+					<div class="col6">
+						<p id="nombre" ></p>
+					</div>
+				</div>
+				<div class="linea">
+					<div class="col3">
+						<p>Raza</p>
+					</div>
+					<div class="col4">
+						<p type="text" id="raza" value="Golden retreiver"></p>
+					</div>
+					<div class="col5">
+						<p>Edad</p>
+					</div>
+					<div class="col6">
+						<p type="number" id="edad" value="0"></p>
+					</div>
+				</div>
+				<div class="linea">
+					<div class="col3">
+						<p>Sexo</p>
+					</div>
+					<div class="col4">
+						<p name="sexo" id="sexo">
+						</p>
+					</div>
+					<div class="col5">
+						<p>Castrado</p>
+					</div>
+					<div class="col6">
+						<p name="castrado" id="castrado">
+							
+						</p>
+					</div>
+				</div>
+				<div class="linea">
+					<div class="col3" id="col3">
+						<p>Mvz</p>
+					</div>
+					<div class="col4" id="col4">
+						<p type="text" id="mvz" placeholder="Nombre Apellido"></p>
+					</div>
+					<div class="col5" id="col5">
+						<p>Expediente</p>
+					</div>
+					<div class="col6" id="col6">
+						<p type="text" id="expediente" value="123456456"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="anam">
+			<div class="linea">
+				<div class="col7" id="col7">
+					<p>Anamnesis / Examen físico</p>
+				</div>
+				<div class="col8" id="col8">
+					<p id="anamnesis" ></p>
+				</div>
+			</div>
+			<div class="linea">
+				<div class="col9" id="col9">
+					<p>Tratamiento previo</p>
+				</div>
+				<div class="col10" id="col10">
+					<!-- <p>Ingrese tratamiento previo hasta de 3 días previos a la muestra</p> -->
+					<p id="previo" placeholder="Ingrese tratamiento previo hasta de 3 días previos a la muestra"></p>
+				</div>
+			</div>
+		</div>
+		<div class="micro">
+			<div class="linea">
+				<div class="miC1">
+					<p>Tipo de muestra</p>
+				</div>
+				<div class="miC3">
+					<p  id="tipo_muestra">
+						
+					</p>
+				</div>
+			</div>
+			<div class="linea">
+				<div class="linT">
+					<p>Examen microscópico</p>
+				</div>
+			</div>
+			<div class="linea">
+				<div class="miC1">
+					<p>Técnica</p>
+				</div>
+				<div class="miC3">
+					<p name="tecnica" id="tecnica">
+						
+					</p>
+				</div>
+			</div>
+			<div class="linea">
+				<div class="miC1">
+					<p id="resultadoss"></p>
+				</div>
+				<div class="miC3">
+					<p></p>
+				</div>
+			</div>
+			<div class="linea">
+			</div>
+		</div>
+		<div class="inter">
+			<div class="interT" id="interT">
+				<p>Observaciones</p>
+			</div>
+			<div class="interTxt" id="interTxt">
+				<p id="obse"></p>
+			</div>
+		</div>
+		<div class="boton">
+			<div class="registrar">
+				<p>Registrar</p>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	function cargarDatos() {
+var urlParams = new URLSearchParams(window.location.search);
+var idExamenes = urlParams.get('idEx');
+var a = "parasitologia"
+console.log(idExamenes);
+
+try {
+  axios.get(url + "/todos/examenes/pdf", {
+	headers: {
+		'Authorization': 'bearer ' + localStorage.getItem("token")
+	},
+	  params: {
+		  id: idExamenes,
+		 tipo: "parasitologia",
+		 carga: "idParasitologia",
+		 idP: localStorage.getItem("id")
+	  }
+  })
+	  .then(function (res) {
+		  if (res.data.code == 200) {
+			console.log(res.data.message)
+			  modificar(res.data.message,res.data.propie)
+			  console.log(res.data.propie)
+
+		  } else {
+		  }
+	  }).catch(function (err) {
+		  console.log(err)
+	  })
+} catch (e) {
+  console.log(e)
+}
+
+}
+function modificar(datos){
+var contenedor = document.getElementById("anamnesis");
+var nuevoParrafo = document.createElement("h3");
+nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Caso
+contenedor.appendChild(nuevoParrafo);
+
+var contenedor = document.getElementById("previo");
+var nuevoParrafo = document.createElement("h3");
+nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].TratPrev
+contenedor.appendChild(nuevoParrafo);
+
+var contenedor = document.getElementById("tipo_muestra");
+var nuevoParrafo = document.createElement("h5");
+nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].TipoMuestra
+contenedor.appendChild(nuevoParrafo);
+
+var contenedor = document.getElementById("tecnica");
+var nuevoParrafo = document.createElement("h5");
+nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Tecnica
+contenedor.appendChild(nuevoParrafo);
+
+var contenedor = document.getElementById("resultadoss");
+var nuevoParrafo = document.createElement("h5");
+nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Resultado
+contenedor.appendChild(nuevoParrafo);
+
+var contenedor = document.getElementById("obse");
+var nuevoParrafo = document.createElement("h4");
+nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Observaciones
+contenedor.appendChild(nuevoParrafo);
+
+//propietario
+var contenedor = document.getElementById("caso");
+var nuevoParrafo = document.createElement("h4");
+nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Caso
+contenedor.appendChild(nuevoParrafo);
+
+var contenedor = document.getElementById("nombre");
+var nuevoParrafo = document.createElement("h4");
+nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Observaciones
+contenedor.appendChild(nuevoParrafo);
+var contenedor = document.getElementById("obse");
+var nuevoParrafo = document.createElement("h4");
+nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Observaciones
+contenedor.appendChild(nuevoParrafo);
+
+var contenedor = document.getElementById("obse");
+var nuevoParrafo = document.createElement("h4");
+nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Observaciones
+contenedor.appendChild(nuevoParrafo);
+
+var contenedor = document.getElementById("obse");
+var nuevoParrafo = document.createElement("h4");
+nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Observaciones
+contenedor.appendChild(nuevoParrafo);
+
+var contenedor = document.getElementById("obse");
+var nuevoParrafo = document.createElement("h4");
+nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Observaciones
+contenedor.appendChild(nuevoParrafo);
+
+var contenedor = document.getElementById("obse");
+var nuevoParrafo = document.createElement("h4");
+nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Observaciones
+contenedor.appendChild(nuevoParrafo);
+
+var contenedor = document.getElementById("obse");
+var nuevoParrafo = document.createElement("h4");
+nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Observaciones
+contenedor.appendChild(nuevoParrafo);
+}
+</script>
+
+
+</html>
