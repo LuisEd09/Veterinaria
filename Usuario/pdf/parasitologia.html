@@ -38,7 +38,7 @@
 					</div>
 					<div class="col2">
 						<!-- <p>Nombre Nombre Apellido Apellido</p> -->
-						<p  id="nombre" ></p>
+						<p  id="Propietario" ></p>
 					</div>
 				</div>
 				<div class="linea">
@@ -204,11 +204,7 @@
 				<p id="obse"></p>
 			</div>
 		</div>
-		<div class="boton">
-			<div class="registrar">
-				<p>Registrar</p>
-			</div>
-		</div>
+		
 	</div>
 </body>
 <script>
@@ -246,78 +242,124 @@ try {
 }
 
 }
-function modificar(datos){
+function modificar(datos, propie){
 var contenedor = document.getElementById("anamnesis");
 var nuevoParrafo = document.createElement("h3");
-nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Caso
+nuevoParrafo.innerHTML ="\u00A0\u00A0"+ datos[0].Caso
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("previo");
 var nuevoParrafo = document.createElement("h3");
-nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].TratPrev
+nuevoParrafo.innerHTML ="\u00A0\u00A0"+ datos[0].TratPrev
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("tipo_muestra");
 var nuevoParrafo = document.createElement("h5");
-nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].TipoMuestra
+nuevoParrafo.innerHTML ="\u00A0\u00A0"+ datos[0].TipoMuestra
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("tecnica");
 var nuevoParrafo = document.createElement("h5");
-nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Tecnica
+nuevoParrafo.innerHTML ="\u00A0\u00A0"+ datos[0].Tecnica
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("resultadoss");
 var nuevoParrafo = document.createElement("h5");
-nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Resultado
+nuevoParrafo.innerHTML ="\u00A0\u00A0"+ datos[0].Resultado
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("obse");
 var nuevoParrafo = document.createElement("h4");
-nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Observaciones
+nuevoParrafo.innerHTML ="\u00A0\u00A0"+ datos[0].Observaciones
 contenedor.appendChild(nuevoParrafo);
 
 //propietario
 var contenedor = document.getElementById("caso");
 var nuevoParrafo = document.createElement("h4");
-nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Caso
+nuevoParrafo.innerHTML ="\u00A0\u00A0"+ datos[0].Caso
+contenedor.appendChild(nuevoParrafo);
+
+var contenedor = document.getElementById("Propietario");
+var nuevoParrafo = document.createElement("h4");
+nuevoParrafo.innerHTML ="\u00A0\u00A0"+ datos[0].idPropietario
+contenedor.appendChild(nuevoParrafo);
+var contenedor = document.getElementById("direccion");
+var nuevoParrafo = document.createElement("h4");
+nuevoParrafo.innerHTML ="\u00A0\u00A0"+ propie[0].Direccion
+contenedor.appendChild(nuevoParrafo);
+
+var contenedor = document.getElementById("telefono");
+var nuevoParrafo = document.createElement("h4");
+nuevoParrafo.innerHTML ="\u00A0\u00A0"+ propie[0].Telefono
+contenedor.appendChild(nuevoParrafo);
+
+var contenedor = document.getElementById("fecha");
+var nuevoParrafo = document.createElement("h4");
+nuevoParrafo.innerHTML ="\u00A0"+ formatearFecha(datos[0].Fecha)
+contenedor.appendChild(nuevoParrafo);
+
+var contenedor = document.getElementById("hora");
+var nuevoParrafo = document.createElement("h4");
+nuevoParrafo.innerHTML ="\u00A0"+ datos[0].Hora
+contenedor.appendChild(nuevoParrafo);
+
+var contenedor = document.getElementById("especie");
+var nuevoParrafo = document.createElement("h4");
+nuevoParrafo.innerHTML ="\u00A0\u00A0"+ datos[0].Especie
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("nombre");
 var nuevoParrafo = document.createElement("h4");
-nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Observaciones
-contenedor.appendChild(nuevoParrafo);
-var contenedor = document.getElementById("obse");
-var nuevoParrafo = document.createElement("h4");
-nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Observaciones
+nuevoParrafo.innerHTML ="\u00A0\u00A0"+ datos[0].Nombre
 contenedor.appendChild(nuevoParrafo);
 
-var contenedor = document.getElementById("obse");
+var contenedor = document.getElementById("raza");
 var nuevoParrafo = document.createElement("h4");
-nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Observaciones
+nuevoParrafo.innerHTML ="\u00A0\u00A0"+ datos[0].Raza
 contenedor.appendChild(nuevoParrafo);
 
-var contenedor = document.getElementById("obse");
+var contenedor = document.getElementById("edad");
 var nuevoParrafo = document.createElement("h4");
-nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Observaciones
+nuevoParrafo.innerHTML ="\u00A0"+ datos[0].Edad
 contenedor.appendChild(nuevoParrafo);
 
-var contenedor = document.getElementById("obse");
+var contenedor = document.getElementById("sexo");
 var nuevoParrafo = document.createElement("h4");
-nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Observaciones
+nuevoParrafo.innerHTML ="\u00A0\u00A0"+ datos[0].Sexo
 contenedor.appendChild(nuevoParrafo);
 
-var contenedor = document.getElementById("obse");
+var contenedor = document.getElementById("castrado");
 var nuevoParrafo = document.createElement("h4");
-nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Observaciones
+nuevoParrafo.innerHTML ="\u00A0\u00A0"+ datos[0].Castrado
 contenedor.appendChild(nuevoParrafo);
 
-var contenedor = document.getElementById("obse");
+var contenedor = document.getElementById("mvz");
 var nuevoParrafo = document.createElement("h4");
-nuevoParrafo.innerHTML ="&#160&#160"+ datos[0].Observaciones
+nuevoParrafo.innerHTML ="\u00A0\u00A0"+ datos[0].Mvz
 contenedor.appendChild(nuevoParrafo);
+
+var contenedor = document.getElementById("expediente");
+var nuevoParrafo = document.createElement("h4");
+nuevoParrafo.innerHTML ="\u00A0\u00A0"+datos[0].Expediente
+contenedor.appendChild(nuevoParrafo);
+
+}
+function formatearFecha(fecha) {
+    // Crea un objeto Date con la cadena de fecha proporcionada
+    const fechaObjeto = new Date(fecha);
+
+    // Obtiene los componentes de la fecha
+    const dia = fechaObjeto.getDate();
+    const mes = fechaObjeto.getMonth() + 1; // Los meses comienzan desde 0, por lo que se suma 1
+    const año = fechaObjeto.getFullYear();
+
+    // Formatea los componentes en una cadena con el formato deseado
+    const fechaFormateada = `${dia < 10 ? '0' + dia : dia}/${mes < 10 ? '0' + mes : mes}/${año}`;
+
+    return fechaFormateada;
 }
 </script>
+
 
 
 </html>
