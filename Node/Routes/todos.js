@@ -34,5 +34,26 @@ todos.get("/citas", async(req, res, next) =>{
     return res.status(404).send({code: 404, message: "No encontrado"});
 });
 
+todos.get("/reporte", async(req, res, next) =>{
+    const mes = req.query.mes
+    const anio = req.query.anio
+    var query = `SELECT h.idHematologia, h.completado, h.fecha, h.especie, h.nombre, p.nombre AS nombre_propietario, 'Hematologia' AS tipo FROM hematologia h
+                JOIN propietario p ON h.idpropietario = p.idPropietario WHERE MONTH(h.fecha) = ${mes} AND YEAR(h.fecha) = ${anio} `;
+    query += `UNION ALL SELECT para.idParasitologia, para.completado, para.fecha, para.especie, para.nombre, p.nombre AS nombre_propietario, 'Parasitologia' AS tipo FROM parasitologia para
+                JOIN propietario p ON para.idpropietario = p.idPropietario WHERE MONTH(para.fecha) = ${mes} AND YEAR(para.fecha) = ${anio} `;
+    query += `UNION ALL SELECT u.idUrianalisis, u.completado, u.fecha, u.especie, u.nombre, p.nombre AS nombre_propietario, 'Urianalisis' AS tipo FROM urianalisis u
+                JOIN propietario p ON u.idUrianalisis = p.idPropietario WHERE MONTH(u.fecha) = ${mes} AND YEAR(u.fecha) = ${anio} `;
+    query += 'ORDER BY fecha ASC;';
+
+    const rows = await db.query(query);
+
+    if(rows.length > 0){
+        return res.status(200).json({code: 200, message: rows});
+    }else{
+        return res.status(400).json({code: 400, message: "No hay"});
+    }
+    return res.status(404).send({code: 404, message: ";Mal ruta"});
+});
+
 
 module.exports = todos
