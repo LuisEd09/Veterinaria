@@ -88,6 +88,8 @@ function displayExamenes(examenes) {
     var cubreImagen = document.getElementById("cubreImagen");
     var myModal = document.getElementById("myModal");
     for (var i = 0; i < examenes.length; i++) {
+        tipo=examenes[i].tipo
+        idExamenes=examenes[i].idHematologia    
         if(examenes[i].completado == 'si'){
             examen.innerHTML += `
                         <div class="linea2">
@@ -97,9 +99,9 @@ function displayExamenes(examenes) {
                             <div class="fecha">
                                 <p>${formatearFecha(examenes[i].fecha)}</p>
                             </div>
-                            <div class="lBtn">
-                                <p>Ver examen</p>
-                            </div>
+                            <div class="lBtn" onclick="irPara('${tipo}','${idExamenes}')">
+							<p>Ver examen</p>
+						</div>
                         </div>
                         `
         }else{
