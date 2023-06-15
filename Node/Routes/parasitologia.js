@@ -80,15 +80,13 @@ parasitologia.get("/examen", async(req, res, next) =>{
 });
 
 parasitologia.put("/update", async (req, res, next) => {
-    const id = req.body.id;
+    const id = req.query.id
     const {
-      value1, value2, value3, value4, value5, value6, value7, value8, value9, value10,
-      value11, value12, value13, value14, value15, value16, value17, value18, value19, value20,
-      value21
+      value2, value3, value4, value5, value6, value7, value8, value9, value10,
+      value11, value12, value13, value14, value15, value16, value17, value18, value19, value20
     } = req.body;
   
-    var query = `UPDATE parasitologia SET
-      IdParasitologia = '${value1}',
+    var query = `UPDATE parasitologia SET 
       Caso = '${value2}',
       Fecha = '${value3}',
       Especie = '${value4}',
@@ -107,15 +105,17 @@ parasitologia.put("/update", async (req, res, next) => {
       Resultado = '${value17}',
       Observaciones = '${value18}',
       Completado = '${value19}',
-      idPropietario = '${value20}',
-      idVeterinario = '${value21}'
-      WHERE 1`;
+      idVeterinario = '${value20}'
+      WHERE idParasitologia = '${id}'`;
   
     try {
-      await db.query(query);
-      return res.status(200).json({ code: 200, message: "Actualizado exitosamente" });
-    } catch (error) {
-      return res.status(500).json({ code: 500, message: "Error en el servidor" });
+      const rows = await db.query(query);
+      if(rows.affectedRows == 1){
+          return res.status(201).json({ code: 201, message: "Actualizado exitosamente" });
+      }
+      return res.status(500).json({ code: 500, message: "Error, affected rows != 1" });
+    }catch (error) {
+      return res.status(500).json({ code: 500, message: error });
     }
   });
 
