@@ -15,7 +15,7 @@
   <body>
     <div class="contenedor">
       <div class="header">
-        <a href="index.html" class="header-img">
+        <a href="../reportes.html" class="header-img">
           <img src="../../Imagenes/LogoUAQ.png" />
           <p>Sistema Veterinario</p>
         </a>
@@ -58,9 +58,7 @@
     var actualTest = "";
     var urlParams = new URLSearchParams(window.location.search);
     var idExamen = urlParams.get("id");
-    window.onload = (event) => {
-  generarPdf();
-};
+
     function generarPdf() {
       window.print();
     }

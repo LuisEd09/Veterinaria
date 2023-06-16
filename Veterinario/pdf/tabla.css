@@ -1,0 +1,162 @@
+html {
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+.header {
+  position: relative;
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  margin-top: 1vh;
+}
+
+.header-img {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 15%;
+  height: 100%;
+  align-items: center;
+}
+
+.header-img p {
+  color: #444;
+  font-size: 25px;
+  width: 60%;
+}
+
+.segundaLinea{
+  width: 80%;
+  margin-left: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.examenes{
+  position: relative;
+  /* margin-left: .1vw; */
+  width: 90vw;
+  margin-left: 5vw;
+  background-color: #EEEEEE;
+  height: 39vh;
+  border-radius: 1vw;
+  overflow: visible;
+  overflow-x: hidden;
+  padding: 15px;
+}
+.tabla-container-header {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  color: #757272;
+}
+.tabla-container-header-columna-1 {
+  width: 16.6%;
+  padding-left: 1vw;
+}
+.tabla-container-header-columna-2 {
+  width: 22.6%;
+  padding-left: 1vw;
+}
+.tabla-container-header-columna-3 {
+  width: 12.6%;
+  padding-left: 1vw;
+}
+.tabla-container-header-columna-4 {
+  width: 12.6%;
+  padding-left: 1vw;
+}
+.tabla-container-header-columna-5 {
+  width: 12.6%;
+  padding-left: 1vw;
+}
+.tabla-container-header-columna-6 {
+  width: 10.6%;
+  padding-left: 1vw;
+}
+
+.tabla-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  box-shadow: 0px 0px 6px 4px rgba(150, 150, 150, 0.26);
+  margin-bottom: 5px;
+  border-radius: 1vw;
+}
+.tabla-card:nth-child(odd) {
+  background-color: #FFFFFF; /* Color blanco para los elementos impares */
+}
+
+.tabla-card:nth-child(even) {
+  background-color: #C9DAFF; /* Color azul para los elementos pares */
+}
+
+.tabla-container-parent {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-collapse: collapse;
+  border-radius: 1vw;
+}
+.tabla-container-body-columna-1 {
+  width: 16.6%;
+  padding-left: 1vw;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.tabla-container-body-columna-2 {
+  width: 22.6%;
+  padding-left: 1vw;
+}
+.tabla-container-body-columna-3 {
+  width: 12.6%;
+  padding-left: 1vw;
+}
+.tabla-container-body-columna-4 {
+  width: 12.6%;
+  padding-left: 1vw;
+}
+.tabla-container-body-columna-5 {
+  width: 12.6%;
+  padding-left: 1vw;
+}
+.tabla-container-body-columna-6 {
+  width: 10.6%;
+  padding-left: 1vw;
+}
+.exCard{
+  background-color: #fff;
+  box-shadow: 4px 4px 18px rgba(0, 0, 0, 0.25);
+  border-radius: 18px;
+  width: 300px;
+  height: 300px;
+  margin-bottom: 20px;
+}
+.buttonDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+#generate-pdf{
+  margin-left: 50px;
+  width: 250px;
+  height: 50px;
+}
