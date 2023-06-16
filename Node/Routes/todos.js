@@ -1,18 +1,24 @@
+
 const express = require('express');
 const todos = express.Router();
 const db = require('../config/database');
 
 todos.get("/examenes", async(req,res,next)=>{
     const id = req.query.id
-    var query = `SELECT idHematologia, completado, fecha, 'Hematologia' AS tipo FROM hematologia WHERE idPropietario = ${id} `;
-    query += `UNION ALL SELECT idParasitologia, completado, fecha, 'Parasitologia' AS tipo FROM parasitologia WHERE idPropietario = ${id} `;
-    query += `UNION ALL SELECT idUrianalisis, completado, fecha, 'Urianalisis' AS tipo FROM urianalisis WHERE idPropietario = ${id} `;
+    var query = `SELECT idHematologia, completado,nombre, fecha, 'Hematologia' AS tipo FROM hematologia WHERE idPropietario = ${id} `;
+    query += `UNION ALL SELECT idParasitologia, completado,nombre, fecha, 'Parasitologia' AS tipo FROM parasitologia WHERE idPropietario = ${id} `;
+    query += `UNION ALL SELECT idUrianalisis, completado,nombre, fecha, 'Urianalisis' AS tipo FROM urianalisis WHERE idPropietario = ${id} `;
     query += 'ORDER BY fecha ASC;'
+
+    var query2 = `SELECT * FROM propietario WHERE idPropietario = ${id}  `;
+
+    const rows2 = await db.query(query2);
+
 
     const rows = await db.query(query);
 
     if(rows.length > 0){
-        return res.status(200).json({code:200, message:rows})
+        return res.status(200).json({code:200, message:rows, propie:rows2})
     }
     return res.status(404).send({code:404, message: "No encontrado"})
 })
