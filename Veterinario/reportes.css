@@ -115,6 +115,13 @@ input{
     justify-content: center;
     height: 40px;
     border-radius: 15px;
+    transition: 1s;
+  }
+
+.graficos:hover{
+  cursor: pointer;
+  box-shadow: 4px 4px 20px #000;
+  transition: 1s;
 }
 
 .tabla{
@@ -126,6 +133,13 @@ input{
     justify-content: center;
     height: 40px;
     border-radius: 15px;
+    transition: 1s;
+  }
+
+.tabla:hover{
+  cursor: pointer;
+  box-shadow: 4px 4px 20px #000;
+  transition: 1s;
 }
 
 .contenedor{

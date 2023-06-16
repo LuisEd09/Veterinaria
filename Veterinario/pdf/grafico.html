@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grafico</title>
+    <link rel="stylesheet" href="grafico.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <!-- <script src="pdfs.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
+  </head>
+
+  <body>
+    <div class="contenedor">
+      <div class="header">
+        <a href="index.html" class="header-img">
+          <img src="../../Imagenes/LogoUAQ.png" />
+          <p>Sistema Veterinario</p>
+        </a>
+      </div>
+      <div class="buttonDiv">
+        <img src="../../Imagenes/Reporte.png" />
+        <button id="generate-pdf" onclick="generarPdf()">
+          GENERAR Y DESCARGAR PDF
+        </button>
+      </div>
+      <div class="segundaLinea">
+        <div class="exCard">
+          <canvas id="uri"></canvas>
+        </div>
+        <div class="exCard">
+          <canvas id="hema"></canvas>
+        </div>
+        <div class="exCard">
+          <canvas id="para"></canvas>
+        </div>
+      </div>
+      <div
+        style="
+          width: 80%;
+          margin-left: 10%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <img src="../../Imagenes/firmas.png" style="
+        width: 600px;
+        margin-top: 150px;" />
+      </div>
+    </div>
+  </body>
+  <script>
+    var headers = {};
+    var url = "http://localhost:3000";
+    var actualTest = "";
+    var urlParams = new URLSearchParams(window.location.search);
+    var idExamen = urlParams.get("id");
+    window.onload = (event) => {
+  generarPdf();
+};
+    function generarPdf() {
+      window.print();
+    }
+    const fechaActual = new Date();
+    var completadoU = 0;
+    var pendienteU = 0;
+    var todosU = 0;
+    var completadoP = 0;
+    var pendienteP = 0;
+    var todosP = 0;
+    var completadoH = 0;
+    var pendienteH = 0;
+    var todosH = 0;
+    var chartUri;
+    var chartHema;
+    var chartPara;
+
+    try {
+      axios
+        .get(url + "/todos/reporte", {
+          headers: {
+            Authorization: "bearer " + localStorage.getItem("token"),
+          },
+          params: {
+            mes: fechaActual.getMonth() + 1,
+            anio: fechaActual.getFullYear(),
+          },
+        })
+        .then(function (res) {
+          if (res.data.code == 200) {
+            console.log(res);
+            for (i = 0; i < res.data.message.length; i++) {
+              if (res.data.message[i].completado != null) {
+                if (res.data.message[i].tipo == "Parasitologia") {
+                  completadoP += 1;
+                }
+                if (res.data.message[i].tipo == "Urianalisis") {
+                  completadoU += 1;
+                }
+                if (res.data.message[i].tipo == "Hematologia") {
+                  completadoH += 1;
+                }
+              } else {
+                if (res.data.message[i].tipo == "Parasitologia") {
+                  pendienteP += 1;
+                }
+                if (res.data.message[i].tipo == "Urianalisis") {
+                  pendienteU += 1;
+                }
+                if (res.data.message[i].tipo == "Hematologia") {
+                  pendienteH += 1;
+                }
+              }
+            }
+            totalU = completadoU + pendienteU;
+            totalH = completadoH + pendienteH;
+            totalP = completadoP + pendienteP;
+            setDonut(
+              completadoU,
+              pendienteU,
+              totalU,
+              completadoH,
+              pendienteH,
+              totalH,
+              completadoP,
+              pendienteP,
+              totalP
+            );
+          } else {
+            console.log(res);
+          }
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
+    } catch (e) {
+      console.log(e);
+    }
+    function setDonut(
+      completadoU,
+      pendienteU,
+      todosU,
+      completadoP,
+      pendienteP,
+      todosP,
+      completadoH,
+      pendienteH,
+      todosH
+    ) {
+      console.log(
+        completadoU +
+          " " +
+          pendienteU +
+          " " +
+          todosU +
+          " " +
+          completadoP +
+          " " +
+          pendienteP +
+          " " +
+          todosP +
+          " " +
+          completadoH +
+          " " +
+          pendienteH +
+          " " +
+          todosH
+      );
+      data = {
+        labels: ["Completados", "Pendientes"],
+        datasets: [
+          {
+            data: [completadoU, pendienteU],
+            backgroundColor: ["#4FB099", "#347364"],
+          },
+        ],
+      };
+      data2 = {
+        labels: ["Completados", "Pendientes"],
+        datasets: [
+          {
+            data: [completadoH, pendienteH],
+            backgroundColor: ["#B04F4F", "#733434"],
+          },
+        ],
+      };
+      data3 = {
+        labels: ["Completados", "Pendientes"],
+        datasets: [
+          {
+            data: [completadoP, pendienteP],
+            backgroundColor: ["#4F99B0", "#31606F"],
+          },
+        ],
+      };
+
+      doughnoutLabel = {
+        id: "doughnoutLabel",
+        beforeDatasetsDraw(chart, args, pluginOptions) {
+          const { ctx, data } = chart;
+          ctx.save;
+          const xCoor = chart.getDatasetMeta(0).data[0].x;
+          const yCoor = chart.getDatasetMeta(0).data[0].y;
+          ctx.font = "bold 25px sans-serif";
+          ctx.fillStyle = "#757272";
+          ctx.textAlign = "center";
+          ctx.fillText(completadoU + "/" + todosU, xCoor, yCoor);
+        },
+      };
+      doughnoutLabel2 = {
+        id: "doughnoutLabel",
+        beforeDatasetsDraw(chart, args, pluginOptions) {
+          const { ctx, data } = chart;
+          ctx.save;
+          const xCoor = chart.getDatasetMeta(0).data[0].x;
+          const yCoor = chart.getDatasetMeta(0).data[0].y;
+          ctx.font = "bold 25px sans-serif";
+          ctx.fillStyle = "#757272";
+          ctx.textAlign = "center";
+          ctx.fillText(completadoH + "/" + todosH, xCoor, yCoor);
+        },
+      };
+      doughnoutLabel3 = {
+        id: "doughnoutLabel",
+        beforeDatasetsDraw(chart, args, pluginOptions) {
+          const { ctx, data } = chart;
+          ctx.save;
+          const xCoor = chart.getDatasetMeta(0).data[0].x;
+          const yCoor = chart.getDatasetMeta(0).data[0].y;
+          ctx.font = "bold 25px sans-serif";
+          ctx.fillStyle = "#757272";
+          ctx.textAlign = "center";
+          ctx.fillText(completadoP + "/" + todosP, xCoor, yCoor);
+        },
+      };
+      chartUri = new Chart(document.getElementById("uri"), {
+        type: "doughnut",
+        data: data,
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: "top",
+            },
+            title: {
+              display: true,
+              text: "Urianálisis",
+            },
+          },
+        },
+        plugins: [doughnoutLabel],
+      });
+      chartHema = new Chart(document.getElementById("hema"), {
+        type: "doughnut",
+        data: data2,
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: "top",
+            },
+            title: {
+              display: true,
+              text: "Hematología",
+            },
+          },
+        },
+        plugins: [doughnoutLabel2],
+      });
+      chartPara = new Chart(document.getElementById("para"), {
+        type: "doughnut",
+        data: data3,
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: "top",
+            },
+            title: {
+              display: true,
+              text: "Parasitología",
+            },
+          },
+        },
+        plugins: [doughnoutLabel3],
+      });
+    }
+  </script>
+</html>
