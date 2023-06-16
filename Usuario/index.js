@@ -36,7 +36,8 @@ function loadExamenes() {
         })
             .then(function (res) {
                 if (res.data.code == 200) {
-                    displayExamenes(res.data.message);
+                    displayExamenes(res.data.message,res.data.propie);
+                    console.log(res.data.propie)
                 } else {
                     displaySin();
                 }
@@ -48,6 +49,7 @@ function loadExamenes() {
         displaySin();
         console.log(e)
     }
+    
 }
 
 function formatearFecha(fecha) {
@@ -65,7 +67,7 @@ function formatearFecha(fecha) {
     return fechaFormateada;
 }
 
-function displayExamenes(examenes) {
+function displayExamenes(examenes,propie) {
     var body = document.getElementById("contenido");
     body.innerHTML += ` 
     <div class="cuerpo2">
@@ -165,6 +167,10 @@ function displayExamenes(examenes) {
 				</div>
 			</div>
     `
+    var contenedor = document.getElementById("negro");
+var nuevoParrafo = document.createElement("h5");
+nuevoParrafo.innerHTML = "\u00A0"+ propie[0].Nombre
+contenedor.appendChild(nuevoParrafo);
 }
 
 function displaySin() {
