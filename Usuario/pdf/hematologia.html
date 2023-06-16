@@ -22,125 +22,123 @@
         <p>Resultados Hematología</p>
       </div>
       <div class="datos">
-        <div class="tabla1">
-          <div class="linea">
-            <div class="col1">
-              <p>Caso</p>
+        
+        <div class="datos">
+          <div class="tabla1">
+            <div class="linea">
+              <div class="col1">
+                <p>Caso</p>
+              </div>
+              <div class="col2">
+                <!-- <p>23-UA-</p> -->
+                <p  id="Caso" ></p>
+              </div>
             </div>
-            <div class="col2">
-              <input type="text" id="caso" placeholder="Llenar Aqui"/>
+            <div class="linea">
+              <div class="col1">
+                <p>Propietario</p>
+              </div>
+              <div class="col2">
+                <!-- <p>Nombre Nombre Apellido Apellido</p> -->
+                <p  id="idPropietario" ></p>
+              </div>
             </div>
-          </div>
-          <div class="linea">
-            <div class="col1">
-              <p>Propietario</p>
+            <div class="linea">
+              <div class="col1">
+                <p>Dirección</p>
+              </div>
+              <div class="col2">
+                <!-- <p>Calle ##, Colonia Ciudad</p> -->
+                <p  id="Direccion" ></p>
+              </div>
             </div>
-            <div class="col2">
-              <input type="text" id="nombre" />
-            </div>
-          </div>
-          <div class="linea">
-            <div class="col1">
-              <p>Dirección</p>
-            </div>
-            <div class="col2">
-              <input type="text" id="direccion" />
-            </div>
-          </div>
-          <div class="linea">
-            <div class="col1">
-              <p>Teléfono</p>
-            </div>
-            <div class="col2">
-              <input type="text" id="telefono" />
-            </div>
-          </div>
-        </div>
-        <div class="tabla2">
-          <div class="linea">
-            <div class="col3">
-              <p>Fecha</p>
-            </div>
-            <div class="col4">
-              <!-- <p>02/07/2023</p> -->
-              <input type="date" id="fecha" />
-            </div>
-            <div class="col5">
-              <p>Hora</p>
-            </div>
-            <div class="col6">
-              <!-- <p>11:11</p> -->
-              <input type="time" id="hora" />
+            <div class="linea">
+              <div class="col1">
+                <p>Teléfono</p>
+              </div>
+              <div class="col2">
+                <!-- <p>4424424424</p> -->
+                <p  id="telefono" ></p>
+              </div>
             </div>
           </div>
-          <div class="linea">
-            <div class="col3">
-              <p>Especie</p>
+          <div class="tabla2">
+            <div class="linea">
+              <div class="col3">
+                <p>Fecha</p>
+              </div>
+              <div class="col4">
+                <!-- <p>02/07/2023</p> -->
+                <p id="fecha"></p>
+              </div>
+              <div class="col5">
+                <p>Hora</p>
+              </div>
+              <div class="col6">
+                <!-- <p>11:11</p> -->
+                <p id="Hora"></p>
+              </div>
             </div>
-            <div class="col4">
-              <select name="especie" id="especie">
-                <option>Seleccione</option>
-                <option value="canino">Canino</option>
-                <option value="felino">Felino</option>
-                <option value="equino">Equino</option>
-                <option value="bovino">Bovino</option>
-              </select>
+            <div class="linea">
+              <div class="col3">
+                <p>Especie</p>
+              </div>
+              <div class="col4">
+                <p name="especie" id="Especie">
+                  
+                </p>
+              </div>
+              <div class="col5">
+                <p>Nombre</p>
+              </div>
+              <div class="col6">
+                <p id="Nombre" ></p>
+              </div>
             </div>
-            <div class="col5">
-              <p>Nombre</p>
+            <div class="linea">
+              <div class="col3">
+                <p>Raza</p>
+              </div>
+              <div class="col4">
+                <p type="text" id="Raza" value="Golden retreiver"></p>
+              </div>
+              <div class="col5">
+                <p>Edad</p>
+              </div>
+              <div class="col6">
+                <p type="number" id="Edad" value="0"></p>
+              </div>
             </div>
-            <div class="col6">
-              <input type="text" id="nombreM" />
+            <div class="linea">
+              <div class="col3">
+                <p>Sexo</p>
+              </div>
+              <div class="col4">
+                <p name="sexo" id="Sexo">
+                </p>
+              </div>
+              <div class="col5">
+                <p>Castrado</p>
+              </div>
+              <div class="col6">
+                <p name="castrado" id="Castrado">
+                  
+                </p>
+              </div>
             </div>
-          </div>
-          <div class="linea">
-            <div class="col3">
-              <p>Raza</p>
-            </div>
-            <div class="col4">
-              <input type="text" id="raza" />
-            </div>
-            <div class="col5">
-              <p>Edad</p>
-            </div>
-            <div class="col6">
-              <input type="number" id="edad" />
-            </div>
-          </div>
-          <div class="linea">
-            <div class="col3">
-              <p>Sexo</p>
-            </div>
-            <div class="col4">
-              <select name="sexo" id="sexo">
-                <option>Seleccione</option>
-                <option value="masculino">Masculino</option>
-                <option value="femenino">Femenino</option>
-              </select>
-            </div>
-            <div class="col5">
-              <p>Castrado</p>
-            </div>
-            <div class="col6">
-              <select name="castrado" id="castrado">
-                <option>Seleccione</option>
-                <option value="si">Si</option>
-                <option value="no">No</option>
-              </select>
-            </div>
-          </div>
-          <div class="linea">
-            <div class="col3" id="col3">
-              <p>Mvz</p>
-            </div>
-            <div class="col4" id="col4">
-              <textarea type="text" id="mvz" placeholder="Llenar Aqui"></textarea>
-            </div>
-            <div class="col5" id="col5">
-              <p>Expediente</p>
-            </div>
-            <div class="col6" id="col6">
-              <input type="text" id="expediente" placeholder="Llenar Aqui"/>
+            <div class="linea">
+              <div class="col3" id="col3">
+                <p>Mvz</p>
+              </div>
+              <div class="col4" id="col4">
+                <p type="text" id="Mvz" placeholder="Nombre Apellido"></p>
+              </div>
+              <div class="col5" id="col5">
+                <p>Expediente</p>
+              </div>
+              <div class="col6" id="col6">
+                <p type="text" id="Expediente" value="123456456"></p>
+              </div>
             </div>
           </div>
         </div>
@@ -151,10 +149,9 @@
             <p>Anamnesis / Examen físico</p>
           </div>
           <div class="col8" id="col8">
-            <textarea
-              id="anamnesis"
-              placeholder="Ingrese anamnesis y examen físico"
-            ></textarea>
+            <p
+              id="AnaYEx"
+            ></p>
           </div>
         </div>
         <div class="linea">
@@ -162,10 +159,10 @@
             <p>Tratamiento previo</p>
           </div>
           <div class="col10" id="col10">
-            <textarea
-              id="previo"
+            <p
+              id="TratPrev"
               placeholder="Ingrese tratamiento previo"
-            ></textarea>
+            ></p>
           </div>
         </div>
       </div>
@@ -187,270 +184,216 @@
           <tr>
             <td><p>Hematocrito</p></td>
             <td>
-              <input type="text" id="Hematocrito" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+              <p type="text" id="Hematocrito" class="variacion" placeholder="Llenar Aqui" ></p>
             </td>
             <td>
-              <select class="variacion" name="variacion" id="HematocritoV">
-                <option value="null">-</option>
-                <option value="bajo">Bajo</option>
-                <option value="alto">Alto</option>
-                <option value="nc">NC</option>
-              </select>
+              <p class="variacion" name="variacion" id="HematocritoV">
+                
+              </p>
             </td>
             <td><p>0.37-0.55</p></td>
             <td><p>L/L</p></td>
             <td><p>Anisocitosis</p></td>
             <td>
-              <select
+              <p
                 class="variacion"
                 name="morfologiaDropdown"
                 id="Anisocitosis"
               >
-                <option value="null">-</option>
-                <option value="1+">1+</option>
-                <option value="2+">2+</option>
-                <option value="3+">3+</option>
-              </select>
+                
+            </p>
             </td>
           </tr>
           <!-- HEMOGLOBINA -->
           <tr>
             <td><p>Hemoglobina</p></td>
             <td>
-              <input type="text" id="Hemoglobina" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+              <p type="text" id="Hemoglobina" class="variacion" placeholder="Llenar Aqui" ></p>
             </td>
             <td>
-              <select class="variacion" name="variacion" id="HemoglobinaV">
-                <option value="null">-</option>
-                <option value="bajo">Bajo</option>
-                <option value="alto">Alto</option>
-                <option value="nc">NC</option>
-              </select>
+              <p class="variacion" name="variacion" id="HemoglobinaV">
+                
+              </p>
             </td>
             <td><p>120-180</p></td>
             <td><p>g/L</p></td>
             <td><p>Policromasia</p></td>
             <td>
-              <select
+              <p
                 class="variacion"
                 name="morfologiaDropdown"
                 id="Policromasia"
               >
-                <option value="null">-</option>
-                <option value="1+">1+</option>
-                <option value="2+">2+</option>
-                <option value="3+">3+</option>
-              </select>
+                
+            </p>
             </td>
           </tr>
           <!-- Eritrocitos -->
           <tr>
             <td><p>Eritrocitos</p></td>
             <td>
-              <input type="text" id="Eritrocitos" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+              <p type="text" id="Eritrocitos" class="variacion" placeholder="Llenar Aqui" ></p>
             </td>
             <td>
-              <select class="variacion" name="variacion" id="EritrocitosV">
-                <option value="null">-</option>
-                <option value="bajo">Bajo</option>
-                <option value="alto">Alto</option>
-                <option value="nc">NC</option>
-              </select>
+              <p class="variacion" name="variacion" id="EritrocitosV">
+                
+              </p>
             </td>
             <td><p>5.5 – 8.5</p></td>
             <td><p>x10^12/L</p></td>
             <td><p>P. Basofílico</p></td>
             <td>
-              <select
+              <p
                 class="variacion"
                 name="morfologiaDropdown"
                 id="PBasofilico"
               >
-                <option value="null">-</option>
-                <option value="1+">1+</option>
-                <option value="2+">2+</option>
-                <option value="3+">3+</option>
-              </select>
+                
+            </p>
             </td>
           </tr>
           <!-- VGM -->
           <tr>
             <td><p>VGM</p></td>
-            <td><input type="text" id="VGM" class="inputTabla3Corto" placeholder="Llenar Aqui" /></td>
+            <td><p type="text" id="VGM" class="variacion" placeholder="Llenar Aqui" ></p></td>
             <td>
-              <select class="variacion" name="variacion" id="VGMV">
-                <option value="null">-</option>
-                <option value="bajo">Bajo</option>
-                <option value="alto">Alto</option>
-                <option value="nc">NC</option>
-              </select>
+              <p class="variacion" name="variacion" id="VGMV">
+                
+              </p>
             </td>
             <td><p>60 – 77</p></td>
             <td><p>fL</p></td>
             <td><p>Hipocromía</p></td>
             <td>
-              <select
+              <p
                 class="variacion"
                 name="morfologiaDropdown"
                 id="Hipocromia"
               >
-                <option value="null">-</option>
-                <option value="1+">1+</option>
-                <option value="2+">2+</option>
-                <option value="3+">3+</option>
-              </select>
+               
+            </p>
             </td>
           </tr>
           <!-- CGMH -->
           <tr>
             <td><p>CGMH</p></td>
-            <td><input type="text" id="CGMH" class="inputTabla3Corto" placeholder="Llenar Aqui" /></td>
+            <td><p type="text" id="CGMH" class="variacion" placeholder="Llenar Aqui" ></p></td>
             <td>
-              <select class="variacion" name="variacion" id="CGMHV">
-                <option value="null">-</option>
-                <option value="bajo">Bajo</option>
-                <option value="alto">Alto</option>
-                <option value="nc">NC</option>
-              </select>
+              <p class="variacion" name="variacion" id="CGMHV">
+                
+              </p>
             </td>
             <td><p>320 – 360</p></td>
             <td><p>g/L</p></td>
             <td><p>Aglutinación</p></td>
             <td>
-              <select
+              <p
                 class="variacion"
                 name="morfologiaDropdown"
                 id="Aglutinacion"
               >
-                <option value="null">-</option>
-                <option value="1+">1+</option>
-                <option value="2+">2+</option>
-                <option value="3+">3+</option>
-              </select>
+               
+            </p>
             </td>
           </tr>
           <!-- Reticulocitos -->
           <tr>
             <td><p>Reticulocitos</p></td>
             <td>
-              <input type="text" id="Reticulocitos" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+              <p type="text" id="Reticulocitos" class="variacion" placeholder="Llenar Aqui" ></p>
             </td>
             <td>
-              <select class="variacion" name="variacion" id="ReticulocitosV">
-                <option value="null">-</option>
-                <option value="bajo">Bajo</option>
-                <option value="alto">Alto</option>
-                <option value="nc">NC</option>
-              </select>
+              <p class="variacion" name="variacion" id="ReticulocitosV">
+                
+              </p>
             </td>
             <td><p>&lt;60</p></td>
             <td><p>x10^9/L</p></td>
             <td><p>Rouleaux</p></td>
             <td>
-              <select class="variacion" name="morfologiaDropdown" id="Rouleaux">
-                <option value="null">-</option>
-                <option value="1+">1+</option>
-                <option value="2+">2+</option>
-                <option value="3+">3+</option>
-              </select>
+              <p class="variacion" name="morfologiaDropdown" id="Rouleaux">
+                
+              </p>
             </td>
           </tr>
           <!-- Plaquetas -->
           <tr>
             <td><p>Plaquetas</p></td>
             <td>
-              <input type="text" id="Plaquetas" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+              <p type="text" id="Plaquetas" class="variacion" placeholder="Llenar Aqui" ></p>
             </td>
             <td>
-              <select class="variacion" name="variacion" id="PlaquetasV">
-                <option value="null">-</option>
-                <option value="bajo">Bajo</option>
-                <option value="alto">Alto</option>
-                <option value="nc">NC</option>
-              </select>
+              <p class="variacion" name="variacion" id="PlaquetasV">
+                
+              </p>
             </td>
             <td><p>200 – 600</p></td>
             <td><p>x10^9/L</p></td>
             <td><p>Metarrubricitos</p></td>
             <td>
-              <select
+              <p
                 class="variacion"
                 name="morfologiaDropdown"
                 id="Metarrubricitos"
               >
-                <option value="null">-</option>
-                <option value="1+">1+</option>
-                <option value="2+">2+</option>
-                <option value="3+">3+</option>
-              </select>
+                
+            </p>
             </td>
           </tr>
           <!-- Sólidos Totales -->
           <tr>
             <td><p>Sólidos Totales</p></td>
-            <td><input type="text" id="Solidos" class="inputTabla3Corto" placeholder="Llenar Aqui" /></td>
+            <td><p type="text" id="Solidos" class="variacion" placeholder="Llenar Aqui" ></p></td>
             <td>
-              <select class="variacion" name="variacion" id="SolidosV">
-                <option value="null">-</option>
-                <option value="bajo">Bajo</option>
-                <option value="alto">Alto</option>
-                <option value="nc">NC</option>
-              </select>
+              <p class="variacion" name="variacion" id="SolidosV">
+                
+              </p>
             </td>
             <td><p>60 - 75</p></td>
             <td><p>g/L</p></td>
             <td><p>Poiquilocitosis</p></td>
             <td>
-              <select
+              <p
                 class="variacion"
                 name="morfologiaDropdown"
                 id="Poiquilocitosis"
               >
-                <option value="null">-</option>
-                <option value="1+">1+</option>
-                <option value="2+">2+</option>
-                <option value="3+">3+</option>
-              </select>
+                
+            </p>
             </td>
           </tr>
           <!-- Leucocitos Totales -->
           <tr>
             <td><p>Leucocitos Totales</p></td>
             <td>
-              <input type="text" id="Leucocitos" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+              <p type="text" id="Leucocitos" class="variacion" placeholder="Llenar Aqui" ></p>
             </td>
             <td>
-              <select class="variacion" name="variacion" id="LeucocitosV">
-                <option value="null">-</option>
-                <option value="bajo">Bajo</option>
-                <option value="alto">Alto</option>
-                <option value="nc">NC</option>
-              </select>
+              <p class="variacion" name="variacion" id="LeucocitosV">
+              
+              </p>
             </td>
             <td><p>6.0 – 17.0</p></td>
             <td><p>x10^9/L</p></td>
             <td colspan="2" rowspan="3">
-              <input
+              <p
                 type="text"
                 id="Tipo"
                 class="inputTabla3Cuadrado"
                 placeholder="Tipo Llenar Aqui"
-              />
+              ></p>
             </td>
           </tr>
           <!-- Neutrófilos -->
           <tr>
             <td><p>Neutrófilos</p></td>
             <td>
-              <input type="text" id="Neutrofilos" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+              <p type="text" id="Neutrofilos" class="variacion" placeholder="Llenar Aqui" ></p>
             </td>
             <td>
-              <select class="variacion" name="variacion" id="NeutrofilosV">
-                <option value="null">-</option>
-                <option value="bajo">Bajo</option>
-                <option value="alto">Alto</option>
-                <option value="nc">NC</option>
-              </select>
+              <p class="variacion" name="variacion" id="NeutrofilosV">
+               
+              </p>
             </td>
             <td><p>3.0 – 11.5</p></td>
             <td><p>x10^9/L</p></td>
@@ -458,14 +401,11 @@
           <!-- Bandas -->
           <tr>
             <td><p>Bandas</p></td>
-            <td><input type="text" id="Bandas" class="inputTabla3Corto" placeholder="Llenar Aqui" /></td>
+            <td><p type="text" id="Bandas" class="variacion" placeholder="Llenar Aqui" ></p></td>
             <td>
-              <select class="variacion" name="variacion" id="BandasV">
-                <option value="null">-</option>
-                <option value="bajo">Bajo</option>
-                <option value="alto">Alto</option>
-                <option value="nc">NC</option>
-              </select>
+              <p class="variacion" name="variacion" id="BandasV">
+              
+              </p>
             </td>
             <td><p>0 – 0.3</p></td>
             <td><p>x10^9/L</p></td>
@@ -474,145 +414,117 @@
           <tr>
             <td><p>Linfocitos</p></td>
             <td>
-              <input type="text" id="Linfocitos" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+              <p type="text" id="Linfocitos" class="variacion" placeholder="Llenar Aqui" ></p>
             </td>
             <td>
-              <select class="variacion" name="variacion" id="LinfocitosV">
-                <option value="null">-</option>
-                <option value="bajo">Bajo</option>
-                <option value="alto">Alto</option>
-                <option value="nc">NC</option>
-              </select>
+              <p class="variacion" name="variacion" id="LinfocitosV">
+                
+              </p>
             </td>
             <td><p>1.0 – 4.8</p></td>
             <td><p>x10^9/L</p></td>
             <td><p>Neutrófilos tóxicos</p></td>
             <td>
-              <select
+              <p
                 class="variacion"
                 name="morfologiaDropdown"
                 id="NeutrofilosToxicos"
               >
-                <option value="null">-</option>
-                <option value="1+">1+</option>
-                <option value="2+">2+</option>
-                <option value="3+">3+</option>
-              </select>
+                
+            </p>
             </td>
           </tr>
           <!-- Monocitos -->
           <tr>
             <td><p>Monocitos</p></td>
             <td>
-              <input type="text" id="Monocitos" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+              <p type="text" id="Monocitos" class="variacion" placeholder="Llenar Aqui" ></p>
             </td>
             <td>
-              <select class="variacion" name="variacion" id="MonocitosV">
-                <option value="null">-</option>
-                <option value="bajo">Bajo</option>
-                <option value="alto">Alto</option>
-                <option value="nc">NC</option>
-              </select>
+              <p class="variacion" name="variacion" id="MonocitosV">
+                
+              </p>
             </td>
             <td><p>0 – 1.4</p></td>
             <td><p>x10^9/L</p></td>
             <td><p>Linfocitos reactivos</p></td>
             <td>
-              <select
+              <p
                 class="variacion"
                 name="morfologiaDropdown"
                 id="LinfocitosReactivos"
               >
-                <option value="null">-</option>
-                <option value="1+">1+</option>
-                <option value="2+">2+</option>
-                <option value="3+">3+</option>
-              </select>
+               
+            </p>
             </td>
           </tr>
           <!-- Eosinófilos -->
           <tr>
             <td><p>Eosinófilos</p></td>
             <td>
-              <input type="text" id="Eosinofilos" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+              <p type="text" id="Eosinofilos" class="variacion" placeholder="Llenar Aqui" ></p>
             </td>
             <td>
-              <select class="variacion" name="variacion" id="EosinofilosV">
-                <option value="null">-</option>
-                <option value="bajo">Bajo</option>
-                <option value="alto">Alto</option>
-                <option value="nc">NC</option>
-              </select>
+              <p class="variacion" name="variacion" id="EosinofilosV">
+                
+              </p>
             </td>
             <td><p>0 – 0.9</p></td>
             <td><p>x10^9/L</p></td>
             <td><p>Mielo. Inmaduros</p></td>
             <td>
-              <select
+              <p
                 class="variacion"
                 name="morfologiaDropdown"
                 id="MieloInmaduros"
               >
-                <option value="null">-</option>
-                <option value="1+">1+</option>
-                <option value="2+">2+</option>
-                <option value="3+">3+</option>
-              </select>
+                
+            </p>
             </td>
           </tr>
           <!-- Basófilos -->
           <tr>
             <td><p>Basófilos</p></td>
             <td>
-              <input type="text" id="Basofilos" class="inputTabla3Corto" placeholder="Llenar Aqui" />
+              <p type="text" id="Basofilos" class="variacion" placeholder="Llenar Aqui" ></p>
             </td>
             <td>
-              <select class="variacion" name="variacion" id="BasofilosV">
-                <option value="null">-</option>
-                <option value="bajo">Bajo</option>
-                <option value="alto">Alto</option>
-                <option value="nc">NC</option>
-              </select>
+              <p class="variacion" name="variacion" id="BasofilosV">
+                
             </td>
             <td><p>Raros</p></td>
             <td><p>x10^9/L</p></td>
             <td><p>Microfilarias</p></td>
             <td>
-              <select
+              <p
                 class="variacion"
                 name="morfologiaDropdown"
                 id="Microfilarias"
               >
-                <option value="null">-</option>
-                <option value="1+">1+</option>
-                <option value="2+">2+</option>
-                <option value="3+">3+</option>
-              </select>
+                
+            </p>
             </td>
           </tr>
           <!-- Artefactos -->
           <tr>
             <td><p>Artefactos</p></td>
             <td colspan="4">
-              <input
+              <p
                 type="text"
                 id="Artefactos"
                 class="inputTabla3Largo"
                 placeholder="Llenar Aqui"
-              />
+              ></p>
             </td>
             <td><p>Macroplaquetas</p></td>
             <td>
-              <select
+              <p
                 class="variacion"
                 name="morfologiaDropdown"
                 id="Macroplaquetas"
               >
-                <option value="null">-</option>
-                <option value="1+">1+</option>
-                <option value="2+">2+</option>
-                <option value="3+">3+</option>
-              </select>
+                
+            </p>
             </td>
           </tr>
         </tbody>
@@ -622,220 +534,254 @@
           <p>Interpretación</p>
         </div>
         <div class="interTxt" id="interTxt">
-          <textarea id="Interpretacion" placeholder="Llenar Aqui"></textarea>
+          <p id="Interpretacion" placeholder="Llenar Aqui"></p>
         </div>
       </div>
-      <div class="boton">
-        <div id="registrar" class="registrar">
-          <p>Registrar</p>
-        </div>
-      </div>
+      
     </div>
   </body>
   <script>
     var url = "http://localhost:3000";
 
-function cargarDatos() {
+    function cargarDatos() {
 var urlParams = new URLSearchParams(window.location.search);
 var idExamenes = urlParams.get('idEx');
+var a = "parasitologia"
 console.log(idExamenes);
 
 try {
-    axios.get(url + "/todos/examenes/pdf", {
-      headers: {
-          'Authorization': 'bearer ' + localStorage.getItem("token")
-      },
-        params: {
-      id: idExamenes,
-     tipo: "hematologia",
-     carga: "idHematologia",
-     idP: localStorage.getItem("id")
-        }
-    })
-        .then(function (res) {
-            if (res.data.code == 200) {
-      console.log(res.data.message)
-                modificar(res.data.message)
-            } else {
-            }
-        }).catch(function (err) {
-            console.log(err)
-        })
+  axios.get(url + "/todos/examenes/pdf", {
+	headers: {
+		'Authorization': 'bearer ' + localStorage.getItem("token")
+	},
+	  params: {
+		  id: idExamenes,
+		 tipo: "hematologia",
+		 carga: "idHematologia",
+		 idP: localStorage.getItem("id")
+	  }
+  })
+	  .then(function (res) {
+		  if (res.data.code == 200) {
+			console.log(res.data.message)
+			  modificar(res.data.message,res.data.propie)
+			  console.log(res.data.propie)
+
+		  } else {
+		  }
+	  }).catch(function (err) {
+		  console.log(err)
+	  })
 } catch (e) {
-    console.log(e)
+  console.log(e)
 }
 
 }
-function modificar(datos){
-var contenedor = document.getElementById("TratPrev");
-var nuevoParrafo = document.createElement("h3");
-nuevoParrafo.innerHTML = "&#160&#160"+ datos[0].TratPrev
-contenedor.appendChild(nuevoParrafo);
+function modificar(datos, propie){
+  var analisis = [`IdHematologia`, `Caso`, `Fecha`, `Especie`, `Raza`, `Sexo`, `Mvz`, `Hora`, `Nombre`, `Edad`, `Castrado`, `Expediente`, `AnaYEx`, `TratPrev`, `Hematocrito`, `HematocritoV`, `Hemoglobina`, `HemoglobinaV`, `Eritrocitos`, `EritrocitosV`, `VGM`, `VGMV`, `CGMH`, `CGMHV`, `Reticulocitos`, `ReticulocitosV`, `Plaquetas`, `PlaquetasV`, `Solidos`, `SolidosV`, `Leucocitos`, `LeucocitosV`, `Neutrofilos`, `NeutrofilosV`, `Bandas`, `BandasV`, `Linfocitos`, `LinfocitosV`, `Monocitos`, `MonocitosV`, `Eosinofilos`, `EosinofilosV`, `Basofilos`, `BasofilosV`, `Policromasia`, `PBasofilico`, `Hipocromia`, `Aglutinacion`, `Rouleaux`, `Metarrubricitos`, `Poiquilocitosis`, `Tipo`, `NeutrofilosToxicos`, `LinfocitosReactivos`, `MieloInmaduros`, `Microfilarias`, `Macroplaquetas`, `Artefactos`, `Interpretacion`, `Completado`, `idPropietario`, `idVeterinario`]
 
-var contenedor = document.getElementById("AnaYEx");
-var nuevoParrafo = document.createElement("h3");
-nuevoParrafo.innerHTML = "&#160&#160"+ datos[0].AnaYEx
-contenedor.appendChild(nuevoParrafo);
+  var valores=  Object.values(datos[0])
+  console.log(valores)
+  for (var i = 0; i < valores.length; i++) {
+  try {
+    var elemento = analisis[i];
+  var contenedor = document.getElementById(elemento);
+  var nuevoParrafo = document.createElement("h3");
+  nuevoParrafo.innerHTML ="\u00A0"+ valores[i];
+  contenedor.appendChild(nuevoParrafo);
+  } catch (error) {
+    console.log("No se encontró el elemento con ID:", analisis[i]);
+  }
+}
 
-var contenedor = document.getElementById("hema");
+var contenedor = document.getElementById("Direccion");
 var nuevoParrafo = document.createElement("h5");
-nuevoParrafo.innerHTML =  datos[0].Hematocrito
+nuevoParrafo.innerHTML = "\u00A0"+ propie[0].Direccion
 contenedor.appendChild(nuevoParrafo);
 
-var contenedor = document.getElementById("hemo");
-var nuevoParrafo = document.createElement("h5");
+  var contenedor = document.getElementById("telefono");
+  var nuevoParrafo = document.createElement("h5");
+  nuevoParrafo.innerHTML = "\u00A0"+ propie[0].Telefono
+  contenedor.appendChild(nuevoParrafo);
+  var contenedor = document.getElementById("fecha");
+  var nuevoParrafo = document.createElement("h5");
+  nuevoParrafo.innerHTML = "\u00A0"+ formatearFecha(datos[0].Fecha)
+  contenedor.appendChild(nuevoParrafo);
+/*
+var contenedor = document.getElementById("Hematocrito");
+var nuevoParrafo = document.createElement("h3");
+nuevoParrafo.innerHTML =  ""+datos[0].Hematocrito
+contenedor.appendChild(nuevoParrafo);
+
+var contenedor = document.getElementById("Hemoglobina");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML = datos[0].Hemoglobina
 contenedor.appendChild(nuevoParrafo);
 
-var contenedor = document.getElementById("eri");
-var nuevoParrafo = document.createElement("h5");
+var contenedor = document.getElementById("Eritrocitos");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML = datos[0].Eritrocitos
 contenedor.appendChild(nuevoParrafo);
 
-var contenedor = document.getElementById("hemaV");
-var nuevoParrafo = document.createElement("h5");
+var contenedor = document.getElementById("HematocritoV");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML =  datos[0].HematocritoV
 contenedor.appendChild(nuevoParrafo);
 
-var contenedor = document.getElementById("hemoV");
-var nuevoParrafo = document.createElement("h5");
+var contenedor = document.getElementById("HemoglobinaV");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML = datos[0].HemoglobinaV
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("eriV");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML = datos[0].EritrocitosV
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("vgm");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML =datos[0].VGM
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("vgmV");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML = datos[0].VGM
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("CGMH");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML = datos[0].CGMH
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("CGMHV");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML =datos[0].CGMHV
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("Reticulocitos");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML = datos[0].Reticulocitos
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("ReticulocitosV");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML =datos[0].ReticulocitosV
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("Plaquetas");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML = datos[0].Plaquetas
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("PlaquetasV");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML =datos[0].PlaquetasV
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("Solidos");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML = datos[0].Solidos
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("SolidosV");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML =datos[0].SolidosV
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("Leucocitos");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML = datos[0].Leucocitos
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("LeucocitosV");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML =datos[0].LeucocitosV
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("Neutrofilos");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML = datos[0].Neutrofilos
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("NeutrofilosV");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML =datos[0].NeutrofilosV
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("Bandas");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML = datos[0].Bandas
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("BandasV");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML =datos[0].BandasV
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("Linfocitos");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML = datos[0].Linfocitos
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("LinfocitosV");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML =datos[0].LinfocitosV
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("Monocitos");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML = datos[0].Monocitos
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("MonocitosV");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML =datos[0].MonocitosV
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("Eosinofilos");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML = datos[0].Eosinofilos
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("EosinofilosV");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML =datos[0].EosinofilosV
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("Basofilos");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML = datos[0].Basofilos
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("BasofilosV");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML =datos[0].BasofilosV
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("Artefactos");
-var nuevoParrafo = document.createElement("h5");
+var nuevoParrafo = document.createElement("h3");
 nuevoParrafo.innerHTML =datos[0].Artefactos
 contenedor.appendChild(nuevoParrafo);
 
 var contenedor = document.getElementById("interpretacion");
 var nuevoParrafo = document.createElement("h2");
-nuevoParrafo.innerHTML =  "&#160&#160"+datos[0].Interpretacion
+nuevoParrafo.innerHTML =  ""+datos[0].Interpretacion
 contenedor.appendChild(nuevoParrafo);
+*/
+function formatearFecha(fecha) {
+    // Crea un objeto Date con la cadena de fecha proporcionada
+    const fechaObjeto = new Date(fecha);
+
+    // Obtiene los componentes de la fecha
+    const dia = fechaObjeto.getDate();
+    const mes = fechaObjeto.getMonth() + 1; // Los meses comienzan desde 0, por lo que se suma 1
+    const año = fechaObjeto.getFullYear();
+
+    // Formatea los componentes en una cadena con el formato deseado
+    const fechaFormateada = `${dia < 10 ? '0' + dia : dia}/${mes < 10 ? '0' + mes : mes}/${año}`;
+
+    return fechaFormateada;
+}
 }
 
   </script>
