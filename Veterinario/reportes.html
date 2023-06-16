@@ -334,6 +334,77 @@
             })
         }
 
+        
+        function displayPlantilla(data) {
+            
+            /* GENERAR ETIQUETAS PARA INFORMACION */
+            var card = document.createElement("div");
+            var col1 = document.createElement("div");
+            var col2 = document.createElement("div");
+            var col3 = document.createElement("div");
+            var col4 = document.createElement("div");
+            var col5 = document.createElement("div");
+            var col6 = document.createElement("div");
+            var childDate = document.createElement("p");
+            var childPropietario = document.createElement("p");
+            var childExpediente = document.createElement("p");
+            var childAnimal = document.createElement("p");
+            var childExamen = document.createElement("p");
+            var childEstatus = document.createElement("p");
+
+            /* APLICAR ATRIBUTOS A ETIQUETAS */
+            card.setAttribute("class", "tabla-card");
+            col1.setAttribute("class", "tabla-container-body-columna-1");
+            col2.setAttribute("class", "tabla-container-body-columna-2");
+            col3.setAttribute("class", "tabla-container-body-columna-3");
+            col4.setAttribute("class", "tabla-container-body-columna-4");
+            col5.setAttribute("class", "tabla-container-body-columna-5");
+            col6.setAttribute("class", "tabla-container-body-columna-6");
+
+            /* RELLENAR ETIQUETAS */
+            childDate.innerHTML = data.Fecha;
+            childPropietario.innerHTML = data.Propietario;
+            childExpediente.innerHTML = data.Expediente;
+            childAnimal.innerHTML = data.Animal;
+            childExamen.innerHTML = data.Examen;
+            childEstatus.innerHTML = data.Status;
+
+            /* ACOMODAR COLUMNAS */
+            col1.appendChild(childDate);
+            col2.appendChild(childPropietario);
+            col3.appendChild(childExpediente);
+            col4.appendChild(childAnimal);
+            col5.appendChild(childExamen);
+            col6.appendChild(childEstatus);
+            /* ACOMODAR CARD */
+            card.append(col1);
+            card.append(col2);
+            card.append(col3);
+            card.append(col4);
+            card.append(col5);
+            card.append(col6);
+            /* AÑADIR CARD AL PARENT */
+            parent.append(card);
+        }
+
+        function formatDate(dateString) {
+
+            var date = new Date(dateString);
+            var day = date.getDate();
+            var month = date.getMonth() + 1; 
+            var year = date.getFullYear();
+
+            
+            if (day < 10) {
+            day = '0' + day;
+            }
+            if (month < 10) {
+            month = '0' + month;
+            }
+
+            return day + '/' + month + '/' + year;
+        }
+
         function getReportes() {
             completadoU = 0;
             pendienteU = 0;
@@ -469,6 +540,25 @@
                             console.log("URI completado, pendiente, total " + completadoU + " " + pendienteU + " " + totalU)
                             console.log("HEMA completado, pendiente, total " + completadoH + " " + pendienteH + " " + totalH)
                             console.log("PARA completado, pendiente, total " + completadoP + " " + pendienteP + " " + totalP)
+
+
+                            parent.innerHTML = '';
+                            var plantilla = {};
+                            res.data.message.forEach(function (data, index) {
+                            var infoKey = "info-" + (index + 1);
+                            var statusValue = (data.completado === null) ? "Pendiente" : "Completado";
+                            plantilla[infoKey] = {
+                                Fecha: formatDate(data.fecha),
+                                Propietario: data.nombre_propietario,
+                                Expediente: data.expediente,
+                                Animal: data.especie,
+                                Examen: data.tipo,
+                                Status: statusValue
+                            };
+                            
+                            displayPlantilla(plantilla[infoKey]);
+                            });
+
                         } else {
                             console.log(res)
                         }
@@ -630,75 +720,6 @@
     console.log(e);
   }
 
-    function displayPlantilla(data) {
-    // Rellenar la plantilla con los datos correspondientes
-    /* GENERAR ETIQUETAS PARA INFORMACION */
-    var card = document.createElement("div");
-    var col1 = document.createElement("div");
-    var col2 = document.createElement("div");
-    var col3 = document.createElement("div");
-    var col4 = document.createElement("div");
-    var col5 = document.createElement("div");
-    var col6 = document.createElement("div");
-    var childDate = document.createElement("p");
-    var childPropietario = document.createElement("p");
-    var childExpediente = document.createElement("p");
-    var childAnimal = document.createElement("p");
-    var childExamen = document.createElement("p");
-    var childEstatus = document.createElement("p");
-
-    /* APLICAR ATRIBUTOS A ETIQUETAS */
-    card.setAttribute("class", "tabla-card");
-    col1.setAttribute("class", "tabla-container-body-columna-1");
-    col2.setAttribute("class", "tabla-container-body-columna-2");
-    col3.setAttribute("class", "tabla-container-body-columna-3");
-    col4.setAttribute("class", "tabla-container-body-columna-4");
-    col5.setAttribute("class", "tabla-container-body-columna-5");
-    col6.setAttribute("class", "tabla-container-body-columna-6");
-
-    /* RELLENAR ETIQUETAS */
-    childDate.innerHTML = data.Fecha;
-    childPropietario.innerHTML = data.Propietario;
-    childExpediente.innerHTML = data.Expediente;
-    childAnimal.innerHTML = data.Animal;
-    childExamen.innerHTML = data.Examen;
-    childEstatus.innerHTML = data.Status;
-
-    /* ACOMODAR COLUMNAS */
-    col1.appendChild(childDate);
-    col2.appendChild(childPropietario);
-    col3.appendChild(childExpediente);
-    col4.appendChild(childAnimal);
-    col5.appendChild(childExamen);
-    col6.appendChild(childEstatus);
-    /* ACOMODAR CARD */
-    card.append(col1);
-    card.append(col2);
-    card.append(col3);
-    card.append(col4);
-    card.append(col5);
-    card.append(col6);
-    /* AÑADIR CARD AL PARENT */
-    parent.append(card);
-  }
-
-  function formatDate(dateString) {
-    // Convertir la fecha en el formato deseado (28/04/2023)
-    var date = new Date(dateString);
-    var day = date.getDate();
-    var month = date.getMonth() + 1; // Los meses son indexados desde 0
-    var year = date.getFullYear();
-
-    // Asegurarse de que el día y el mes tengan dos dígitos
-    if (day < 10) {
-      day = '0' + day;
-    }
-    if (month < 10) {
-      month = '0' + month;
-    }
-
-    return day + '/' + month + '/' + year;
-  }
 });
     </script>
 </body>
