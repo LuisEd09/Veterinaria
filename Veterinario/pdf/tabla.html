@@ -15,7 +15,7 @@
   <body>
     <div class="contenedor">
       <div class="header">
-        <a href="index.html" class="header-img">
+        <a href="../reportes.html" class="header-img">
           <img src="../../Imagenes/LogoUAQ.png" />
           <p>Sistema Veterinario</p>
         </a>
@@ -70,6 +70,21 @@
     var url = "http://localhost:3000";
     const fechaActual = new Date();
 
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlFecha = urlParams.get("fecha");
+    let dateParts = urlFecha.split("-");
+    let year = parseInt(dateParts[0]);
+    let month = parseInt(dateParts[1]);
+    month += 1;
+    if (month === 13) {
+      year += 1;
+      month = 1;
+    }
+    let formattedMonth = month.toString().padStart(2, "0");
+    let newDateString = `${year}-${formattedMonth}`;
+    var nuevaFecha = new Date(newDateString);
+
+
     var parent = document.getElementById("tabla-container-parent");
 
     function generarPdf() {
@@ -83,15 +98,23 @@
             Authorization: "bearer " + localStorage.getItem("token"),
           },
           params: {
-            mes: fechaActual.getMonth() + 1,
-            anio: fechaActual.getFullYear(),
+            mes: nuevaFecha.getMonth() + 1,
+            anio: nuevaFecha.getFullYear(),
           },
         })
         .then(function (res) {
           if (res.data.code == 200) {
-            console.log(res.data.message);
-            for (let i = 0; i < res.data.message.length; i++) {
-              displayPlantilla(res.data.message[i]);
+            console.log(res);
+            if(res.data.message.length>0){
+              for (let i = 0; i < res.data.message.length; i++) {
+                displayPlantilla(res.data.message[i]);
+              }
+            } else {
+              console.log("SIN REGISTROS");
+              var sinRegistro = document.createElement("p");
+              sinRegistro.innerHTML = "Sin registros";
+              parent.appendChild(sinRegistro);
+              // parent.appendChild(Document.createElement("p").value = "Sin registro");
             }
           }
         })
@@ -103,7 +126,6 @@
     }
 
     function displayPlantilla(data) {
-      console.log("DATAAAA > " + JSON.stringify(data));
       /* GENERAR ETIQUETAS PARA INFORMACION */
       var card = document.createElement("div");
       var col1 = document.createElement("div");
