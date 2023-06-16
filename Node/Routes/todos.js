@@ -57,11 +57,11 @@ todos.get("/citas", async(req, res, next) =>{
 todos.get("/reporte", async(req, res, next) =>{
     const mes = req.query.mes
     const anio = req.query.anio
-    var query = `SELECT h.idHematologia, h.completado, h.fecha, h.especie, h.nombre, p.nombre AS nombre_propietario, 'Hematologia' AS tipo FROM hematologia h
+    var query = `SELECT h.idHematologia, h.completado, h.fecha, h.especie, h.expediente, h.nombre, p.nombre AS nombre_propietario, 'Hematologia' AS tipo FROM hematologia h
                 JOIN propietario p ON h.idpropietario = p.idPropietario WHERE MONTH(h.fecha) = ${mes} AND YEAR(h.fecha) = ${anio} `;
-    query += `UNION ALL SELECT para.idParasitologia, para.completado, para.fecha, para.especie, para.nombre, p.nombre AS nombre_propietario, 'Parasitologia' AS tipo FROM parasitologia para
+    query += `UNION ALL SELECT para.idParasitologia, para.completado, para.fecha, para.especie, para.expediente, para.nombre, p.nombre AS nombre_propietario, 'Parasitologia' AS tipo FROM parasitologia para
                 JOIN propietario p ON para.idpropietario = p.idPropietario WHERE MONTH(para.fecha) = ${mes} AND YEAR(para.fecha) = ${anio} `;
-    query += `UNION ALL SELECT u.idUrianalisis, u.completado, u.fecha, u.especie, u.nombre, p.nombre AS nombre_propietario, 'Urianalisis' AS tipo FROM urianalisis u
+    query += `UNION ALL SELECT u.idUrianalisis, u.completado, u.fecha, u.especie, u.expediente, u.nombre, p.nombre AS nombre_propietario, 'Urianalisis' AS tipo FROM urianalisis u
                 JOIN propietario p ON u.idUrianalisis = p.idPropietario WHERE MONTH(u.fecha) = ${mes} AND YEAR(u.fecha) = ${anio} `;
     query += 'ORDER BY fecha ASC;';
 
