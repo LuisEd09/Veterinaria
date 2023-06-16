@@ -574,67 +574,7 @@
         let calendar;
         document.addEventListener('DOMContentLoaded', function () {
             const monthInput = document.getElementById('mes');
-            const myEvents = [
-                {
-                    start: '2023-06-15T06:00:00',
-                    end: '2023-06-15T20:30:00',
-                    name: 'Event 1',
-                    url: 'https://www.cssscript.com',
-                    desc: 'Description 1',
-                    // more key value pairs here
-                }, {
-                    start: '2023-06-16T06:00:00',
-                    end: '2023-06-16T20:30:00',
-                    name: 'Event 2',
-                    url: 'https://www.cssscript.com',
-                }, {
-                    start: '2023-06-17T06:00:00',
-                    end: '2023-06-17T20:30:00',
-                    name: 'Event 3',
-                    url: 'https://www.cssscript.com',
-                },
-            ]
-
-            calendar = new Calendar({
-                id: '#color-calendar',
-                eventsData: myEvents,
-
-                // small or large
-                calendarSize: 'small',
-                // an array of layout modifiers
-                layoutModifiers: ['month-align-left'],
-
-                // basic | glass
-                theme: 'glass',
-                // custom colors
-                primaryColor: '#EC407A',
-                headerColor: 'white',
-                headerBackgroundColor: 'rgba(0, 0, 0, 0.3)',
-                weekdaysColor: 'based on theme',
-                // short | long-lower | long-upper
-                weekdayDisplayType: 'short',
-                // short | long
-                monthDisplayType: 'long',
-                // 0 (Sun)
-                startWeekday: 0,
-                // font family
-                fontFamilyHeader: 'based on theme',
-                fontFamilyWeekdays: 'based on theme',
-                fontFamilyBody: 'based on theme',
-                // shadow CSS
-                dropShadow: 'based on theme',
-                // border CSS
-                border: 'based on theme',
-                // border radius
-                borderRadius: '0.5rem',
-                // disable month year pickers
-                disableMonthYearPickers: true,
-                // disable click on dates
-                disableDayClick: true,
-                // disable the arrows to navigate between months
-                disableMonthArrowClick: true,
-                customWeekdayValues: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
-            })
+        
 
             // Obtén la fecha actual
             const currentDate = new Date();
