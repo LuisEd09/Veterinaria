@@ -76,9 +76,9 @@ todos.get("/reporte", async(req, res, next) =>{
     if(rows.length > 0){
         return res.status(200).json({code: 200, message: rows});
     }else{
-        return res.status(400).json({code: 400, message: "No hay"});
+        return res.status(200).send({code: 200, message: []});
     }
-    return res.status(404).send({code: 404, message: ";Mal ruta"});
+    return res.status(404).send({code: 404, message: "No encontrado"});
 });
 
 
