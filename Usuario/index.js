@@ -163,7 +163,7 @@ function displayExamenes(examenes,propie) {
 				</div>
 				<div class="botones">
 					<button class="btn2" onclick="submit()">Enviar</button>
-					<button class="btn" onclick="closeModal()">Canelar</button>
+					<button class="btn" onclick="closeModal()">Cancelar</button>
 				</div>
 			</div>
     `
@@ -219,7 +219,7 @@ function displaySin() {
                 </div>
                 <div class="botones">
                     <button class="btn2" onclick="submit()">Enviar</button>
-                    <button class="btn" onclick="closeModal()">Canelar</button>
+                    <button class="btn" onclick="closeModal()">Cancelar</button>
                 </div>
             </div>
         </div>

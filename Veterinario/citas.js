@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
     childButton.setAttribute("href", hrefValue);
 
     /* RELLENAR ETIQUETAS */
+    // console.log(data.Propietario)
     childDate.innerHTML = data.Fecha;
     childPropietary.innerHTML = data.Propietario;
     childAnimal.innerHTML = data.Especie;

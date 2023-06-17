@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -728,9 +728,6 @@
 
           // Crea la nueva cadena de fecha con el mes incrementado
           let newDateString = `${year}-${formattedMonth}`;
-
-          // Actualiza la fecha del calendario con el nuevo mes seleccionado
-          calendar.setDate(newDateString);
         });
       });
       //tabla
@@ -777,6 +774,16 @@
           console.log(e);
         }
       });
+      document.getElementById('logout-link').addEventListener('click', function (event) {
+        event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+
+        // Eliminar el valor almacenado en localStorage
+        localStorage.removeItem('token');
+        localStorage.removeItem('id');
+
+        // Redireccionar o realizar cualquier otra acción que desees después de cerrar sesión
+        window.location.href = '../pages/index.html'; // Redireccionar a la página de inicio, por ejemplo
+    });
     </script>
   </body>
 </html>
