@@ -15,7 +15,7 @@ veterinario.post("/login", async (req, res, next) =>{
                 idVeterinario: rows[0].idVeterinario,
                 Correo: rows[0].Correo
             }, "debugkey");
-            return res.status(200).json({code:200 ,  message:token, id:rows[0].expediente})
+            return res.status(200).json({code:200 ,  message:token, id:rows[0].idVeterinario})
         }else{
             return res.status(200).json({code:200 ,  message:"Correo y/o contraseña incorrectos"})
         }
@@ -25,7 +25,7 @@ veterinario.post("/login", async (req, res, next) =>{
 
 veterinario.get("/info", async (req, res, next) =>{
     const id = req.query.id
-    var query = `SELECT Nombre, expediente FROM veterinario WHERE idVeterinario = ${id}; `;
+    var query = `SELECT Nombre, idVeterinario, expediente FROM veterinario WHERE idVeterinario = ${id}; `;
 
     const rows = await db.query(query);
 

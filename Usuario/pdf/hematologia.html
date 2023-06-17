@@ -137,7 +137,7 @@
                 <p>Expediente</p>
               </div>
               <div class="col6" id="col6">
-                <p type="text" id="Expediente" value="123456456"></p>
+                <p type="text" id="Expediente" ></p>
               </div>
             </div>
           </div>
@@ -593,6 +593,7 @@ function modificar(datos, propie){
     console.log("No se encontró el elemento con ID:", analisis[i]);
   }
 }
+document.getElementById('Expediente').value = datos[66]
 
 var contenedor = document.getElementById("Direccion");
 var nuevoParrafo = document.createElement("h5");

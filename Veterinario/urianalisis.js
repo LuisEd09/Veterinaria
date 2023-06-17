@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(function (response){
                 if(response.data.code == 200){
                     var res = response.data.message[0];
-                    console.log(res)
+                    console.log("AAAAAA " +res)
                     mvz.value = res.Nombre;
                     expediente.value = res.expediente;
                 }else{

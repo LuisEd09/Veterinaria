@@ -37,7 +37,7 @@ function loadExamenes() {
             .then(function (res) {
                 if (res.data.code == 200) {
                     displayExamenes(res.data.message,res.data.propie);
-                    console.log(res.data.propie)
+                    console.log(res.data)
                 } else {
                     displaySin();
                 }
@@ -63,6 +63,8 @@ function formatearFecha(fecha) {
 
     // Formatea los componentes en una cadena con el formato deseado
     const fechaFormateada = `${dia < 10 ? '0' + dia : dia}/${mes < 10 ? '0' + mes : mes}/${año}`;
+    console.log(fecha)
+    console.log(fechaFormateada)
 
     return fechaFormateada;
 }

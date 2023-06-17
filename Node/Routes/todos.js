@@ -28,7 +28,9 @@ todos.get("/examenes/pdf", async(req,res,next)=>{
     const tipo = req.query.tipo
     const idExamen = req.query.carga
     const idP = req.query.idP
-    var query = `SELECT * FROM ${tipo} WHERE ${idExamen} = ${id} AND completado = 'si' `;
+    const idV = req.query.idV
+    var query = `SELECT * FROM ${tipo} t JOIN veterinario v ON t.idVeterinario = v.idVeterinario WHERE ${idExamen} = ${id} AND completado = 'si' 
+                    `;
 
     var query2 = `SELECT * FROM propietario WHERE idPropietario = ${idP}  `;
 
