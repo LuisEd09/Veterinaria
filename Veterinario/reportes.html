@@ -113,7 +113,7 @@
                 <p>Exámen</p>
               </div>
               <div class="tabla-container-header-columna-5">
-                <p>Estatus</p>
+                <p>Completado</p>
               </div>
             </div>
             <div
@@ -415,7 +415,8 @@
         /* RELLENAR ETIQUETAS */
         childDate.innerHTML = data.Fecha;
         childPropietario.innerHTML = data.Propietario;
-        childExpediente.innerHTML = data.Expediente;
+        console.log("EXPEDIENTE>>> " + data.Expediente);
+        childExpediente.innerHTML = (data.Expediente == null ? "Por determinar" : data.Expediente);
         childAnimal.innerHTML = data.Animal;
         childExamen.innerHTML = data.Examen;
         childEstatus.innerHTML = data.Status;

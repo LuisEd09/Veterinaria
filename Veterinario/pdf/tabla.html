@@ -44,7 +44,7 @@
             <p>Exámen</p>
           </div>
           <div class="tabla-container-header-columna-5">
-            <p>Estatus</p>
+            <p>Completado</p>
           </div>
         </div>
         <div id="tabla-container-parent" class="tabla-container-parent"></div>
@@ -153,10 +153,10 @@
       /* RELLENAR ETIQUETAS */
       childDate.innerHTML = formatDate(data.fecha);
       childPropietario.innerHTML = data.nombre_propietario;
-      childExpediente.innerHTML = data.expediente;
+      childExpediente.innerHTML = (data.expediente == null ? "Por determinar" : data.expediente);
       childAnimal.innerHTML = data.nombre;
       childExamen.innerHTML = data.tipo;
-      childEstatus.innerHTML = data.completado;
+      childEstatus.innerHTML = (data.completado == "si" ? "Completado" : "Pendiente");
 
       /* ACOMODAR COLUMNAS */
       col1.appendChild(childDate);
