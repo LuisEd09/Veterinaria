@@ -593,6 +593,11 @@ function modificar(datos, propie){
     console.log("No se encontró el elemento con ID:", analisis[i]);
   }
 }
+var contenedor2 = document.getElementById("Expediente");
+var nuevoParrafo2 = document.createElement("h3");
+nuevoParrafo2.innerHTML = "\u00A0" + valores[67];
+contenedor2.innerHTML = ''; // Elimina el contenido existente
+contenedor2.appendChild(nuevoParrafo2);
 document.getElementById('Expediente').value = datos[66]
 
 var contenedor = document.getElementById("Direccion");
